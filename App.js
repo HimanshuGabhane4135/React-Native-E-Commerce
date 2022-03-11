@@ -1,112 +1,67 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
+import {View} from 'react-native';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
+  VStack,
+  HStack,
+  Button,
+  IconButton,
+  // Icon,
   Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+  NativeBaseProvider,
+  Center,
+  Box,
+  StatusBar,
+} from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+function AppBar() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <StatusBar bg="#3700B3" barStyle="light-content" />
+      <Box safeAreaTop bg="#6200ee" />
+      <HStack
+        bg="#6200ee"
+        px="1"
+        py="3"
+        justifyContent="space-between"
+        alignItems="center"
+        // width="auto"
+        w="80%"
+        maxW="auto">
+        <HStack alignItems="center">
+          <IconButton icon={<Icon size={24} color="white" name="menu" />} />
+          <Text color="white" fontSize="20" fontWeight="bold">
+            E-Commerce
+          </Text>
+        </HStack>
+        <HStack>
+          <IconButton icon={<Icon size={24} color="white" name="search" />} />
+          <IconButton icon={<Icon size={24} color="white" name="favorite" />} />
+          {/* <IconButton
+            icon={<Icon size={24} color="white" name="more-vert" />}
+          /> */}
+        </HStack>
+      </HStack>
     </View>
   );
-};
+}
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+function Example() {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Center>
+      {/* <Text>Hello</Text>
+      <Icon size={24} color="black" name="menu" /> */}
+      <AppBar />
+    </Center>
+  );
+}
+
+export default () => {
+  return (
+    <NativeBaseProvider>
+      {/* <Center flex={1} px="3"> */}
+      <Example />
+      {/* </Center> */}
+    </NativeBaseProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;

@@ -1,5 +1,5 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
 import {
   VStack,
   HStack,
@@ -11,13 +11,42 @@ import {
   Center,
   Box,
   StatusBar,
+  Input,
 } from 'native-base';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/Screens/Login';
+import Home from './src/Screens/Home';
+import SplashScreen from 'react-native-splash-screen';
+import Change from './src/Screens/change';
 
-function AppBar() {
+
+const Stack = createNativeStackNavigator();
+const App = () => {
+
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // })
+
   return (
-    <View>
-      <StatusBar bg="#3700B3" barStyle="light-content" />
+
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Change" component={Change} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
+
+
+
+
+
+{/* <StatusBar bg="#3700B3" barStyle="light-content" />
       <Box safeAreaTop bg="#6200ee" />
       <HStack
         bg="#6200ee"
@@ -36,32 +65,18 @@ function AppBar() {
         </HStack>
         <HStack>
           <IconButton icon={<Icon size={24} color="white" name="search" />} />
-          <IconButton icon={<Icon size={24} color="white" name="favorite" />} />
-          {/* <IconButton
+          <IconButton icon={<Icon size={24} color="white" name="favorite" />} /> */}
+{/* <IconButton
             icon={<Icon size={24} color="white" name="more-vert" />}
           /> */}
-        </HStack>
-      </HStack>
-    </View>
-  );
-}
-
-function Example() {
-  return (
-    <Center>
-      {/* <Text>Hello</Text>
-      <Icon size={24} color="black" name="menu" /> */}
-      <AppBar />
-    </Center>
-  );
-}
-
-export default () => {
-  return (
-    <NativeBaseProvider>
-      {/* <Center flex={1} px="3"> */}
-      <Example />
-      {/* </Center> */}
-    </NativeBaseProvider>
-  );
-};
+{/* </HStack>
+      </HStack> */}
+{/* <Box m={10}>
+        <Text fontSize="sm" fontWeight="bold">Log in for the best experiance</Text>
+        <Text fontSize="xs" color={Color.gray} mt={3} mb={3}>Expereance the all new Flipkart</Text>
+        <Input placeholder='Phone number' w={300} variant="outline" borderColor={Color.blue} borderWidth={2}/>
+        <Text fontSize="xs" color={Color.blue} fontWeight="bold" textAlign="right" my={2}>Use Email-ID</Text>
+        <Input placeholder='Password' w={300} variant="outline" borderColor={Color.blue} borderWidth={2}/>
+        <Text fontSize="xs"></Text>
+        <Button backgroundColor={Color.orange} rounded="xl">Continue</Button>
+      </Box> */}

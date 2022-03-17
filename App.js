@@ -19,6 +19,9 @@ import Login from './src/Screens/Login';
 import Home from './src/Screens/Home';
 import SplashScreen from 'react-native-splash-screen';
 import Change from './src/Screens/change';
+import Cart from './src/Screens/Cart';
+import WishList from './src/Screens/WishList';
+import OrderTraking from './src/Screens/OrderTraking';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,12 +32,14 @@ const App = () => {
   // })
 
   return (
-
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Cart">
         <Stack.Screen name="Change" component={Change} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Cart" component={Cart} />
+        <Stack.Screen name="WishList" component={WishList} />
+        <Stack.Screen name="OrderTraking" component={OrderTraking} />
       </Stack.Navigator>
     </NavigationContainer>
   );

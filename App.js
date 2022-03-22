@@ -16,12 +16,14 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/Screens/Login';
+import SignUp from './src/Screens/SignUp';
 import Home from './src/Screens/Home';
 import SplashScreen from 'react-native-splash-screen';
 import Change from './src/Screens/change';
 import Cart from './src/Screens/Cart';
 import WishList from './src/Screens/WishList';
 import OrderTraking from './src/Screens/OrderTraking';
+import ForgotPassword from './src/Screens/ForgotPassword'
 
 
 const Stack = createNativeStackNavigator();
@@ -33,10 +35,12 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Cart">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Change" component={Change} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Cart" component={Cart} />
         <Stack.Screen name="WishList" component={WishList} />
         <Stack.Screen name="OrderTraking" component={OrderTraking} />

@@ -15,12 +15,12 @@ const OrderTraking = () => {
 
                     <HStack>
                         <VStack w="50%">
-                            <Text fontSize="sm" fontWeight="bold">Product Name</Text>
+                            <Text fontSize="sm" fontWeight="bold">Product Name</Text>  
 
 
                             <HStack mt={1}>
-                                <Text fontSize="xs"  color={Color.gray}>Seller:</Text>
-                                <Text fontSize="xs"  color={Color.gray} ml={1}>OmniTech</Text>
+                                    <Text fontSize="xs"  color={Color.gray}>Seller:</Text>
+                                    <Text fontSize="xs"  color={Color.gray} ml={1}>OmniTech</Text>
                             </HStack>
 
                             <HStack mt={5}>
@@ -48,25 +48,6 @@ const OrderTraking = () => {
                             </Box>
                         </VStack>
                     </HStack>
-
-                    {/* <Button variant="subtle" startIcon={<Icon name="save" size={20} color={Color.gray} />}>
-    Download
-</Button> */}
-
-                    {/* <HStack mt={5}>
-                        <Button startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                            color: "#898989",
-                            fontSize: "12"
-                        }}>
-                            Save for later
-                        </Button>
-                        <Button startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                            color: "#898989",
-                            fontSize: "12"
-                        }}>
-                            Remove
-                        </Button>
-                    </HStack> */}
                 </Box>
             </View>
         </NativeBaseProvider>

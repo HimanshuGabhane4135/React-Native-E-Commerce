@@ -32,7 +32,7 @@ const Login = ({ navigation }) => {
             setPassword({ ...password, error: Errors.pwdBlank })
         }
         if (userName.value == emptyData) {
-            setUserName({ ...userName, error: Errors.userNameBlank})
+            setUserName({ ...userName, error: Errors.userNameBlank })
         }
         // else if(userName.value != sUserName || password.value != sPassword){
         //     setPassword({ ...userName, error: "*UserName or passwor is inValid..." })
@@ -41,6 +41,9 @@ const Login = ({ navigation }) => {
             navigation.navigate('Home')
         }
     }
+    const values = { userName, password }
+    console.log("UserDAta", values)
+
     return (
         <NativeBaseProvider>
             <View>
@@ -70,7 +73,7 @@ const Login = ({ navigation }) => {
                         }>Forgot Password?</Text>
 
                     <Text fontSize="xs"></Text>
-            
+
                     <FlotingButton
                         btnString="LogIn"
                         onPress={loginHandler}

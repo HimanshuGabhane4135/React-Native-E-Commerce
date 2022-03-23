@@ -6331,6 +6331,11 @@ react-native-splash-screen@^3.3.0:
   resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.3.0.tgz"
   integrity sha512-rGjt6HkoSXxMqH4SQUJ1gnPQlPJV8+J47+4yhgTIan4bVvAwJhEeJH7wWt9hXSdH4+VfwTS0GTaflj1Tw83IhA==
 
+react-native-step-progress-bar@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-step-progress-bar/-/react-native-step-progress-bar-1.0.3.tgz#858b7aed1b8ba95a3468098125ee7bbed3faded4"
+  integrity sha512-VGvvm2TV9T0jeBB9jnSCfLBwguD+H9PBOvFZo0XsOEW3oN6bt5crZhuyluz7yXL9GSfij9k4YrSvF5pNPsCmng==
+
 react-native-svg@^12.3.0:
   version "12.3.0"
   resolved "https://registry.npmjs.org/react-native-svg/-/react-native-svg-12.3.0.tgz"

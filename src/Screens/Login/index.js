@@ -20,8 +20,7 @@ const Login = ({ navigation }) => {
     const [userName, setUserName] = useState({ value: "", error: "" })
     const [password, setPassword] = useState({ value: "", error: "" });
     const emptyData = "";
-    const sUserName = "sapana";
-    const sPassword = "sapana"
+
 
     useEffect(() => {
         SplashScreen.hide()

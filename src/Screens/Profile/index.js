@@ -6,6 +6,7 @@ import {
   NativeBaseProvider,
   ScrollView,
   Text,
+  Button,
   VStack,
 } from 'native-base';
 // import {ScrollView} from 'react-native';
@@ -15,6 +16,8 @@ import {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import style from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Color} from '../../Utils/color';
 
 const Profile = () => {
   //   const [quantity, setQuantity] = useState();
@@ -78,7 +81,6 @@ const Profile = () => {
             </VStack>
             <Icon style={style.icon} name="pencil" size={20} color="black" />
           </Box>
-
           <Box
             safeArea
             p="1"
@@ -87,7 +89,7 @@ const Profile = () => {
             maxW="500"
             p={5}
             mt="3"
-            backgroundColor="gray.700">
+            bg={Color.gray}>
             <Text borderBottomWidth="1" color="white">
               {' '}
               My Orders
@@ -97,7 +99,6 @@ const Profile = () => {
               VIEW ALL ORDERS
             </Text>
           </Box>
-
           <Box
             safeArea
             p="1"
@@ -106,7 +107,7 @@ const Profile = () => {
             maxW="500"
             p={5}
             mt="3"
-            backgroundColor="gray.700">
+            bg={Color.gray}>
             <Text borderBottomWidth="1" color="white">
               {' '}
               My Wishlist
@@ -116,7 +117,6 @@ const Profile = () => {
               VIEW YOUR WISHLIST
             </Text>
           </Box>
-
           <Box
             safeArea
             p="1"
@@ -125,7 +125,7 @@ const Profile = () => {
             maxW="500"
             p={5}
             mt="3"
-            backgroundColor="gray.700">
+            bg={Color.gray}>
             <Box flexDirection="row">
               <Text borderBottomWidth="1" width="96%" color="white">
                 {' '}
@@ -142,6 +142,18 @@ const Profile = () => {
               {' '}
               VIEW ALL ADDRESS
             </Text>
+          </Box>
+          <Box mt="3" flexDirection="row">
+            <Button
+              startIcon={<Icon3 name="logout" size={20} color={Color.white} />}
+              bg={Color.blue}
+              w="50%"
+              _text={{
+                color: Color.white,
+                fontSize: '12',
+              }}>
+              Logout
+            </Button>
           </Box>
         </Center>
       </ScrollView>

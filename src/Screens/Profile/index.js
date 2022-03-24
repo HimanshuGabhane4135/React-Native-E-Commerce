@@ -18,6 +18,7 @@ import style from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Color} from '../../Utils/color';
+import FlotingButton from '../../Components/FlotingButton';
 
 const Profile = () => {
   //   const [quantity, setQuantity] = useState();

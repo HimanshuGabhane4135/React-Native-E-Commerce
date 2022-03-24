@@ -20,7 +20,7 @@ const Routing = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="EditProfile">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Change" component={Change} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />

@@ -1,17 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import styles from './style';
+import Slider from '../../Components/Slider/index';
+
+const images = [
+  require('../../Assets/carousel1.jpg'),
+  require('../../Assets/carousel2.jpg'),
+  require('../../Assets/carousel3.jpg'),
+  require('../../Assets/carousel4.jpg'),
+];
 
 function Homescreen({navigation}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+
   let counter = 0;
 
   const getProducts = async () => {
@@ -33,11 +35,14 @@ function Homescreen({navigation}) {
 
   return (
     <ScrollView style={styles.mainView}>
-      <ScrollView style={styles.carousel}>
-        <Text>carousel</Text>
-      </ScrollView>
+      {/* carousel */}
+
+      <Slider images={images} />
+
+      {/* MEN */}
+
       <View style={styles.subContainer}>
-        <View style={{flexDirection: 'row', margin: 5}}>
+        <View style={{flexDirection: 'row', margin: 5, padding: 5}}>
           <Text style={styles.heading}>MEN</Text>
           <Text
             style={styles.viewAll}
@@ -48,11 +53,15 @@ function Homescreen({navigation}) {
           </Text>
         </View>
 
-        <ScrollView horizontal style={styles.container}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.container}>
           {data ? (
             data.map(item =>
               counter++ < 5 ? (
-                <TouchableOpacity key={item.id}
+                <TouchableOpacity
+                  key={item.id}
                   style={styles.card}
                   onPress={() => {
                     const proId = item.id;
@@ -74,8 +83,11 @@ function Homescreen({navigation}) {
           )}
         </ScrollView>
       </View>
+
+      {/* WOMEN */}
+
       <View style={styles.subContainer}>
-        <View style={{flexDirection: 'row', margin: 5}}>
+        <View style={{flexDirection: 'row', margin: 5, padding: 5}}>
           <Text style={styles.heading}>WOMEN</Text>
           <Text
             style={styles.viewAll}
@@ -86,12 +98,16 @@ function Homescreen({navigation}) {
           </Text>
         </View>
 
-        <ScrollView horizontal style={styles.container}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.container}>
           {data ? (
-              counter=0,
+            ((counter = 0),
             data.map(item =>
               counter++ >= 5 && counter <= 10 ? (
-                <TouchableOpacity key={item.id}
+                <TouchableOpacity
+                  key={item.id}
                   style={styles.card}
                   onPress={() => {
                     const proId = item.id;
@@ -107,14 +123,17 @@ function Homescreen({navigation}) {
               ) : (
                 <></>
               ),
-            )
+            ))
           ) : (
             <Text>WOMEN</Text>
           )}
         </ScrollView>
       </View>
+
+      {/* KIDS */}
+
       <View style={styles.subContainer}>
-        <View style={{flexDirection: 'row', margin: 5}}>
+        <View style={{flexDirection: 'row', margin: 5, padding: 5}}>
           <Text style={styles.heading}>KIDS</Text>
           <Text
             style={styles.viewAll}
@@ -125,12 +144,16 @@ function Homescreen({navigation}) {
           </Text>
         </View>
 
-        <ScrollView horizontal style={styles.container}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={styles.container}>
           {data ? (
-              counter=0,
+            ((counter = 0),
             data.map(item =>
               counter++ >= 11 && counter <= 16 ? (
-                <TouchableOpacity key={item.id}
+                <TouchableOpacity
+                  key={item.id}
                   style={styles.card}
                   onPress={() => {
                     const proId = item.id;
@@ -146,7 +169,7 @@ function Homescreen({navigation}) {
               ) : (
                 <></>
               ),
-            )
+            ))
           ) : (
             <Text>KIDS</Text>
           )}
@@ -157,4 +180,3 @@ function Homescreen({navigation}) {
 }
 
 export default Homescreen;
-

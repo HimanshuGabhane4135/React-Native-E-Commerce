@@ -54,7 +54,9 @@ const ProductListWithApi = ({ navigation }) => {
       <View>
         <SafeAreaView style={{backgroundColor: '#edebeb'}}>
           {isLoading ? (
+            <View style={{justifyContent:'center',alignItems:'center', marginHorizontal: 200}}>
             <ActivityIndicator />
+            </View>
           ) : (
               <View style={{marginBottom: 100}}>
             <FlatList 

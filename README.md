@@ -18,5 +18,14 @@ yarn add @react-navigation/native
 Stack Navigation: -
 yarn add @react-navigation/stack
 
+Drawer Navigator: -
+- yarn add @react-navigation/drawer
+- yarn add react-native-gesture-handler react-native-reanimated
+- also edit babel.config.js :- 
+  module.exports = {
+  presets: ["module:metro-react-native-babel-preset"],
+  plugins: ["react-native-reanimated/plugin"],
+  };
+
 # Run pod install
 cd ios && pod install && cd ..

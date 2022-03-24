@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-
+import SplashScreen from 'react-native-splash-screen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from '../Screens/Login';
@@ -14,13 +14,13 @@ import ManageAddress from '../Screens/ManageAddress';
 
 const Stack = createNativeStackNavigator();
 const Routing = () => {
-  // useEffect(() => {
-  //   SplashScreen.hide();
-  // })
+  useEffect(() => {
+    SplashScreen.hide();
+  });
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Profile">
+      <Stack.Navigator initialRouteName="EditProfile">
         <Stack.Screen name="Change" component={Change} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />

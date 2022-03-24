@@ -1,12 +1,8 @@
 import React from 'react';
-import Routing from './src/router/Routing'
+import Routing from './src/router/Routing';
 
 const App = () => {
-  return (
-    <Routing />
-  );
-}
-
-
+  return <Routing />;
+};
 
 export default App;

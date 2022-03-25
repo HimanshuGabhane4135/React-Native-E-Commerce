@@ -84,7 +84,6 @@ const Profile = () => {
           </Box>
           <Box
             safeArea
-            p="1"
             py="8"
             w="90%"
             maxW="500"
@@ -102,7 +101,6 @@ const Profile = () => {
           </Box>
           <Box
             safeArea
-            p="1"
             py="8"
             w="90%"
             maxW="500"
@@ -120,7 +118,6 @@ const Profile = () => {
           </Box>
           <Box
             safeArea
-            p="1"
             py="8"
             w="90%"
             maxW="500"

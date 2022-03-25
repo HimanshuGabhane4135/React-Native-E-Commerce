@@ -14,6 +14,12 @@ import FloatingInput from '../../Components/FloatingInput';
 import FlotingButton from '../../Components/FlotingButton';
 import { Errors } from '../../Utils/MessageUtils';
 
+const Login = ({navigation}) => {
+  const [userName, setUserName] = useState({value: '', error: ''});
+  const [password, setPassword] = useState({value: '', error: ''});
+  const emptyData = '';
+  const sUserName = 'sapana';
+  const sPassword = 'sapana';
 
 const Login = ({ navigation }) => {
 
@@ -71,7 +77,7 @@ const Login = ({ navigation }) => {
                         onPress={() => navigation.navigate('ForgotPassword')
                         }>Forgot Password?</Text>
 
-                    <Text fontSize="xs"></Text>
+          <FlotingButton btnString="LogIn" onPress={loginHandler} />
 
                     <FlotingButton
                         btnString="LogIn"

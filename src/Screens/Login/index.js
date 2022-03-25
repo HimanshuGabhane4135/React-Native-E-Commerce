@@ -14,12 +14,6 @@ import FloatingInput from '../../Components/FloatingInput';
 import FlotingButton from '../../Components/FlotingButton';
 import { Errors } from '../../Utils/MessageUtils';
 
-const Login = ({navigation}) => {
-  const [userName, setUserName] = useState({value: '', error: ''});
-  const [password, setPassword] = useState({value: '', error: ''});
-  const emptyData = '';
-  const sUserName = 'sapana';
-  const sPassword = 'sapana';
 
 const Login = ({ navigation }) => {
 
@@ -43,7 +37,7 @@ const Login = ({ navigation }) => {
         //     setPassword({ ...userName, error: "*UserName or passwor is inValid..." })
         // }
         else if ((userName.value, password.value) != emptyData) {
-            navigation.navigate('Home')
+            navigation.navigate('SideDrawer');
         }
     }
     const values = { userName, password }
@@ -69,15 +63,13 @@ const Login = ({ navigation }) => {
                         placeholder="Password"
                         value={password.value}
                         error={password.error}
-                        onChangeText={(text) => setPassword({ value: text, error: "" })}
+                        onChangeText={(text) => setPassword({ valuae: text, error: "" })}
                         iconName="lock"
                     />
 
                     <Text fontSize="xs" color={Color.blue} fontWeight="bold" textAlign="right" my={1}
                         onPress={() => navigation.navigate('ForgotPassword')
                         }>Forgot Password?</Text>
-
-          <FlotingButton btnString="LogIn" onPress={loginHandler} />
 
                     <FlotingButton
                         btnString="LogIn"
@@ -98,4 +90,4 @@ const Login = ({ navigation }) => {
     )
 }
 
-export default Login;
+export default Login

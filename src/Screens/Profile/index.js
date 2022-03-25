@@ -144,7 +144,7 @@ const Profile = () => {
               VIEW ALL ADDRESS
             </Text>
           </Box>
-          <Box mt="3" flexDirection="row">
+          <Box mt="3" flexDirection="row" mb="3">
             <Button
               startIcon={<Icon3 name="logout" size={20} color={Color.white} />}
               bg={Color.blue}

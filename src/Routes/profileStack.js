@@ -1,12 +1,12 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import WishList from '../Screens/WishList/index';
+import Profile from '../Screens/Profile/index';
 
 const Stack = createNativeStackNavigator();
 
-const WishStack = () => {
+const ProfileStack = () => {
   return (
-    <Stack.Navigator initialRouteName="WishList">
+    <Stack.Navigator initialRouteName="Profile">
       <Stack.Group
         screenOptions={{
           headerStyle: {backgroundColor: '#eee'},
@@ -14,13 +14,13 @@ const WishStack = () => {
           headerShown: false,
         }}>
         <Stack.Screen
-          name="WishList"
-          component={WishList}
-          options={{title: 'WISHLIST'}}
+          name="Profile"
+          component={Profile}
+          options={{title: 'PROFILE'}}
         />
       </Stack.Group>
     </Stack.Navigator>
   );
 };
 
-export default WishStack;
+export default ProfileStack;

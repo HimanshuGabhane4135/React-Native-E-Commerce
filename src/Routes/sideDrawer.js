@@ -6,15 +6,16 @@ import HomeStack from './homeStack';
 import WishStack from './wishStack';
 import ProfileStack from './profileStack';
 
-
 const Drawer = createDrawerNavigator();
 
 const SideDrawer = () => {
   return (
     <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={HomeStack} />
-      <Drawer.Screen name="Wishlist" component={WishStack} />
-      <Drawer.Screen name="ProfileScreen" component={ProfileStack} />
+      <Drawer.Group screenOptions={{swipeEnabled: false}}>
+        <Drawer.Screen name="Home" component={HomeStack} />
+        <Drawer.Screen name="Wishlist" component={WishStack} />
+        <Drawer.Screen name="ProfileScreen" component={ProfileStack} />
+      </Drawer.Group>
     </Drawer.Navigator>
   );
 };

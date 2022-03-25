@@ -15,21 +15,12 @@ const OrderTraking = () => {
 
                     <HStack>
                         <VStack w="50%">
-<<<<<<< HEAD
-                            <Text fontSize="sm" fontWeight="bold">Product Name</Text>
-
-
-                            <HStack mt={1}>
-                                <Text fontSize="xs"  color={Color.gray}>Seller:</Text>
-                                <Text fontSize="xs"  color={Color.gray} ml={1}>OmniTech</Text>
-=======
                             <Text fontSize="sm" fontWeight="bold">Product Name</Text>  
 
 
                             <HStack mt={1}>
                                     <Text fontSize="xs"  color={Color.gray}>Seller:</Text>
                                     <Text fontSize="xs"  color={Color.gray} ml={1}>OmniTech</Text>
->>>>>>> 043075dd532b857487c76472213a44e444daa6d8
                             </HStack>
 
                             <HStack mt={5}>
@@ -57,28 +48,6 @@ const OrderTraking = () => {
                             </Box>
                         </VStack>
                     </HStack>
-<<<<<<< HEAD
-
-                    {/* <Button variant="subtle" startIcon={<Icon name="save" size={20} color={Color.gray} />}>
-    Download
-</Button> */}
-
-                    {/* <HStack mt={5}>
-                        <Button startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                            color: "#898989",
-                            fontSize: "12"
-                        }}>
-                            Save for later
-                        </Button>
-                        <Button startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                            color: "#898989",
-                            fontSize: "12"
-                        }}>
-                            Remove
-                        </Button>
-                    </HStack> */}
-=======
->>>>>>> 043075dd532b857487c76472213a44e444daa6d8
                 </Box>
             </View>
         </NativeBaseProvider>

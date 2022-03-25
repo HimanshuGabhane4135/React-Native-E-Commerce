@@ -11,27 +11,15 @@
   },
   "dependencies": {
     "@react-native-picker/picker": "^2.4.0",
-<<<<<<< HEAD
-    "@react-navigation/drawer": "^6.3.1",
-=======
->>>>>>> 043075dd532b857487c76472213a44e444daa6d8
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "native-base": "^3.3.7",
     "react": "17.0.2",
     "react-native": "0.67.3",
-<<<<<<< HEAD
-    "react-native-gesture-handler": "^2.3.2",
-    "react-native-reanimated": "^2.5.0",
-    "react-native-safe-area-context": "^4.1.4",
-    "react-native-screens": "^3.13.1",
-    "react-native-splash-screen": "^3.3.0",
-=======
     "react-native-safe-area-context": "^4.1.4",
     "react-native-screens": "^3.13.1",
     "react-native-splash-screen": "^3.3.0",
     "react-native-step-progress-bar": "^1.0.3",
->>>>>>> 043075dd532b857487c76472213a44e444daa6d8
     "react-native-svg": "^12.3.0",
     "react-native-vector-icons": "^9.1.0"
   },

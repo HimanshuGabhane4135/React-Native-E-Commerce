@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { Button } from 'react-native';
 
 import {
   ActivityIndicator,
@@ -9,7 +10,8 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../Redux/action';
 import styles from './style';
 
 const ProductDetail = ({route, navigation}) => {
@@ -30,6 +32,10 @@ const ProductDetail = ({route, navigation}) => {
       setLoading(false);
     }
   };
+
+
+  const dispatch = useDispatch();
+  const fetchProduct = () => dispatch(addToCart({data}))
 
   useEffect(() => {
     getProduct();
@@ -59,9 +65,10 @@ const ProductDetail = ({route, navigation}) => {
       <View  style={{flex: 0.1,justifyContent:'flex-end',backgroundColor: '#edebeb',}}>
       <View style={{flexDirection: 'row' }}>
         <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.btnText}>Add to cart</Text>
+          <TouchableOpacity style={styles.button2} onPress={()=>fetchProduct()}>
+            <Text style={styles.btnText2}>Add to cart</Text>
           </TouchableOpacity>
+           {/* <Button title='add to cart' onPress={()=>fetchProduct()}/> */}
         </View>
         <View style={styles.btnView}>
           <TouchableOpacity style={styles.button}>

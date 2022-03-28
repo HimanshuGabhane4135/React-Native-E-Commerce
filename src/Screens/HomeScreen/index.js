@@ -1,7 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image, Button} from 'react-native';
 import styles from './style';
 import Slider from '../../Components/Slider/index';
+import { IconButton, NativeBaseProvider } from 'native-base';
+import Icon from 'react-native-vector-icons/AntDesign';
+import { Color } from '../../Utils/color';
+import { useDispatch } from 'react-redux';
+import { addToWishList } from '../../Redux/action';
 
 const images = [
   require('../../Assets/carousel1.jpg'),
@@ -28,6 +33,9 @@ function Homescreen({navigation}) {
       setLoading(false);
     }
   };
+
+  const dispatch = useDispatch();
+  const wishListProduct = () => {dispatch(addToWishList(data))}
 
   useEffect(() => {
     getProducts();
@@ -67,6 +75,12 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                    <NativeBaseProvider>
+                   <IconButton
+                    onPress={() => wishListProduct()}
+                    alignItems="flex-end" 
+                    icon={<Icon size={20} color={Color.gray} name="star" />} />
+                   </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>

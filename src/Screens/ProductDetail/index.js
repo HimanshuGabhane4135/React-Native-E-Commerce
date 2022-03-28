@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-native';
 
 import {
@@ -14,8 +14,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Redux/action';
 import styles from './style';
 
-const ProductDetail = ({route, navigation}) => {
-  const {proId} = route.params;
+const ProductDetail = ({ route, navigation }) => {
+  const { proId } = route.params;
   const id = JSON.stringify(proId);
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -35,24 +35,24 @@ const ProductDetail = ({route, navigation}) => {
 
 
   const dispatch = useDispatch();
-  const fetchProduct = () => dispatch(addToCart({data}))
+  const fetchProduct = () => dispatch(addToCart({ data }))
 
   useEffect(() => {
     getProduct();
   }, []);
 
   return (
-  
-    <View  style={{flex: 1}}>
-    
-      <View style={{flex: 0.9,backgroundColor: '#edebeb', }}>
+
+    <View style={{ flex: 1 }}>
+
+      <View style={{ flex: 0.9, backgroundColor: '#edebeb', }}>
         {isLoading ? (
-          <View  style = {{flex: 0.8,justifyContent:'center',alignItems:'center'}}>
-          <ActivityIndicator />
+          <View style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
+            <ActivityIndicator />
           </View>
         ) : (
-          <ScrollView style = {{flex: 0.8}}>
-            <Image style={styles.img} source={{uri: data.image}} />
+          <ScrollView style={{ flex: 0.8 }}>
+            <Image style={styles.img} source={{ uri: data.image }} />
             <View style={styles.infoContainer}>
               <Text style={styles.title}>{data.title}</Text>
               <Text style={styles.price}>${data.price}</Text>
@@ -62,22 +62,22 @@ const ProductDetail = ({route, navigation}) => {
           </ScrollView>
         )}
       </View>
-      <View  style={{flex: 0.1,justifyContent:'flex-end',backgroundColor: '#edebeb',}}>
-      <View style={{flexDirection: 'row' }}>
-        <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button2} onPress={()=>fetchProduct()}>
-            <Text style={styles.btnText2}>Add to cart</Text>
-          </TouchableOpacity>
-           {/* <Button title='add to cart' onPress={()=>fetchProduct()}/> */}
+      <View style={{ flex: 0.1, justifyContent: 'flex-end', backgroundColor: '#edebeb', }}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={styles.btnView}>
+            <TouchableOpacity style={styles.button2} onPress={() => fetchProduct()}>
+              <Text style={styles.btnText2}>Add to cart</Text>
+            </TouchableOpacity>
+            {/* <Button title='add to cart' onPress={()=>fetchProduct()}/> */}
+          </View>
+          <View style={styles.btnView}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("OrderTraking")}>
+              <Text style={styles.btnText}>Buy Now</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.btnText}>Buy Now</Text>
-          </TouchableOpacity>
-        </View>
       </View>
-      </View>
-      </View>
+    </View>
     // </ScrollView>
   );
 };

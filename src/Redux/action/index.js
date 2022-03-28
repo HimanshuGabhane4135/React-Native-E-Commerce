@@ -1,4 +1,4 @@
-import { ADD_TO_BOOKMARK_LIST, ADD_TO_CART, REMOVE_FROM_CART } from "../../Utils/constants/type"
+import { ADD_TO_CART, ADD_TO_WISHLIST, REMOVE_FROM_CART, REMOVE_FROM_WHISHLIST } from "../../Utils/constants/type"
 
 
 export const addToCart = product => dispatch => {
@@ -11,6 +11,20 @@ export const addToCart = product => dispatch => {
 export const removeFromCart = product => dispatch => {
     dispatch({
         type:REMOVE_FROM_CART,
+        payload:product
+    })
+}
+
+export const addToWishList = product => dispatch => {
+    dispatch({
+        type:ADD_TO_WISHLIST,
+        payload:product
+    })
+}
+
+export const removeFromWishList = product => dispatch => {
+    dispatch({
+        type:REMOVE_FROM_WHISHLIST,
         payload:product
     })
 }

@@ -1,9 +1,5 @@
 import React from 'react'
 import { Box, Button, Center, CheckIcon, FlatList, Flex, HStack, IconButton, Image, NativeBaseProvider, Select, Text, View, VStack } from 'native-base'
-import { useEffect } from 'react'
-import SplashScreen from 'react-native-splash-screen'
-
-
 import { useState } from 'react'
 import { Picker } from '@react-native-picker/picker'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,7 +7,7 @@ import Icon2 from 'react-native-vector-icons/Fontisto';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch, useSelector } from 'react-redux'
 import { Color } from '../../Utils/color'
-import { removeFromCart } from '../../Redux/action'
+import { addToWishList, removeFromCart } from '../../Redux/action'
 
 const Cart = () => {
 
@@ -20,10 +16,18 @@ const Cart = () => {
 
     const dispatch=useDispatch();
     const removeFromBookmarkList = book => dispatch(removeFromCart(book))
-  
+
     const handleRemoveBookmark = book => {
       removeFromBookmarkList(book);
     };
+
+
+    const addToWlist = book => dispatch(addToWishList(book))
+
+    const handleAddToWishList = book => {
+        addToWlist(book);
+    };
+
 
     // console.log(JSON.stringify(bookMarsk));
     const renderItem = ({ item }) => {
@@ -38,11 +42,6 @@ const Cart = () => {
                             <VStack w="50%">
                                 <Text fontSize="sm" fontWeight="bold">{item.title}</Text>
                                 <HStack mt={2}>
-
-                                    {/* <HStack>
-                                    <Text fontSize="xs" fontWeight="bold" color={Color.white} pt={0.5} pl={2}>5</Text>
-                                    <IconButton icon={<Icon size={10} color={Color.white} name="star" />} />
-                                </HStack> */}
                                     <Button _text={{
                                         color: "#fff",
                                         fontSize: "12"
@@ -92,7 +91,9 @@ const Cart = () => {
                         </HStack>
 
                         <HStack mt={5}>
-                            <Button startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
+                            <Button 
+                            onPress={() => handleAddToWishList(item)}
+                            startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
                                 color: "#898989",
                                 fontSize: "12"
                             }}>

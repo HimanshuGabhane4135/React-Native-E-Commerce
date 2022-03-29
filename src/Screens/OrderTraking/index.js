@@ -3,29 +3,30 @@ import React, { useEffect } from 'react'
 import SplashScreen from 'react-native-splash-screen'
 import { Color } from '../../Utils/color'
 
-const OrderTraking = () => {
-
+const OrderTraking = ({ route }) => {
+    const { productName, productPrice, productImage } = route.params;
     useEffect(() => {
         SplashScreen.hide()
     })
     return (
         <NativeBaseProvider>
+            <Text fontSize="md" m={3}>OrderTraking</Text>
             <View>
                 <Box p={5} bg="#D3D3D3" m={5} rounded={5}>
 
                     <HStack>
                         <VStack w="50%">
-                            <Text fontSize="sm" fontWeight="bold">Product Name</Text>  
+                            <Text fontSize="sm" fontWeight="bold">{productName}</Text>
 
 
                             <HStack mt={1}>
-                                    <Text fontSize="xs"  color={Color.gray}>Seller:</Text>
-                                    <Text fontSize="xs"  color={Color.gray} ml={1}>OmniTech</Text>
+                                <Text fontSize="xs" color={Color.gray}>Seller:</Text>
+                                <Text fontSize="xs" color={Color.gray} ml={1}>OmniTech</Text>
                             </HStack>
 
                             <HStack mt={5}>
                                 <Text fontSize="lg" fontWeight="bold">₹</Text>
-                                <Text fontSize="lg" fontWeight="bold">213</Text>
+                                <Text fontSize="lg" fontWeight="bold">{productPrice}</Text>
                             </HStack>
                             <HStack>
                                 <Text fontSize="sm" >Delivery by </Text>
@@ -42,8 +43,8 @@ const OrderTraking = () => {
                         <VStack w="50%">
                             <Box alignItems="flex-end">
                                 <Image source={{
-                                    uri: "https://www.pngall.com/wp-content/uploads/5/Purse.png"
-                                }} size="sm" alt="Please Wait" mb={1} />
+                                    uri: productImage
+                                }} size="md" alt="Please Wait" mb={1} />
 
                             </Box>
                         </VStack>

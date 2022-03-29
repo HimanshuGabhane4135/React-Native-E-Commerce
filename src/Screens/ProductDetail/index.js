@@ -71,7 +71,11 @@ const ProductDetail = ({ route, navigation }) => {
             {/* <Button title='add to cart' onPress={()=>fetchProduct()}/> */}
           </View>
           <View style={styles.btnView}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("OrderTraking")}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("OrderTraking",{
+              productName:data.title,
+              productPrice:data.price,
+              productImage:data.image
+            })}>
               <Text style={styles.btnText}>Buy Now</Text>
             </TouchableOpacity>
           </View>

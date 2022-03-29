@@ -1,9 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image, BackHandler, Alert} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  BackHandler,
+  Alert,
+} from 'react-native';
 import styles from './style';
 import Slider from '../../Components/Slider/index';
 import {useRoute, useFocusEffect} from '@react-navigation/native';
-
 
 const images = [
   require('../../Assets/carousel1.jpg'),
@@ -40,15 +47,15 @@ function Homescreen({navigation}) {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
-        if (route.name = 'Homescreen') {
-          Alert.alert("Hold on!", "Are you sure you want to go Exit?", [
-        {
-          text: "Cancel",
-          onPress: () => null,
-          style: "cancel"
-        },
-        { text: "YES", onPress: () => BackHandler.exitApp() }
-      ]);
+        if ((route.name = 'Homescreen')) {
+          Alert.alert('Hold on!', 'Are you sure you want to go Exit?', [
+            {
+              text: 'Cancel',
+              onPress: () => null,
+              style: 'cancel',
+            },
+            {text: 'YES', onPress: () => BackHandler.exitApp()},
+          ]);
           return true;
         } else {
           return false;
@@ -59,9 +66,8 @@ function Homescreen({navigation}) {
 
       return () =>
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-    }, [])
+    }, []),
   );
-
 
   return (
     <ScrollView style={styles.mainView}>

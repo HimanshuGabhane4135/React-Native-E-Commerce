@@ -84,8 +84,11 @@ const ProductListWithApi = ({ navigation }) => {
       <Actionsheet isOpen={isOpen} onClose={onClose} >
         <Actionsheet.Content>
           <Actionsheet.Item onPress={() => AscPrice()} 
-          > Low to high</Actionsheet.Item>
-          <Actionsheet.Item onPress={() => DecPrice()}>High to Low</Actionsheet.Item>
+          > Low to high
+          </Actionsheet.Item>
+          <Actionsheet.Item onPress={() => DecPrice()}
+          >High to Low
+          </Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
       </View>

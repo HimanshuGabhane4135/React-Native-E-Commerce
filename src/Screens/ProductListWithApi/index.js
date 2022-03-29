@@ -1,4 +1,6 @@
+import { Actionsheet, NativeBaseProvider, Select, useDisclose ,Button} from 'native-base';
 import React, {useEffect, useState} from 'react';
+
 
 import {
   ActivityIndicator,
@@ -18,6 +20,14 @@ const ProductListWithApi = ({ navigation }) => {
   const number = 2;
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
+  const {
+    isOpen,
+    onOpen,
+    onClose
+  } = useDisclose();
+
 
   const getProducts = async () => {
     try {
@@ -37,20 +47,50 @@ const ProductListWithApi = ({ navigation }) => {
   }, []);
 
 
+  const AscPrice = () => {
+    // data?.sort((a,b) => console.log('_____',a.price > '--',b.price ? 1 : -1))
+    let temp=[...data]
+    temp = temp?.sort((a,b) => (a.price > b.price ? 1 : -1))
+    // console.log(".....",data)
+    setData(temp)
+    
+  }
+
+  const DecPrice = () => {
+    let temp=[...data]
+    temp = temp?.sort((a,b) => (a.price < b.price ? 1 : -1))
+    setData(temp)
+    
+  }
+
   return (
+    <NativeBaseProvider>
     <View>
       <View style={{flexDirection: 'row'}}>
         <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={onOpen}>
             <Text style={styles.btnText}>Sort</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} >
             <Text style={styles.btnText}>Filter</Text>
           </TouchableOpacity>
         </View>
       </View>
+
+
+      <View>
+      <Actionsheet isOpen={isOpen} onClose={onClose} >
+        <Actionsheet.Content>
+          <Actionsheet.Item onPress={() => AscPrice()} 
+          > Low to high</Actionsheet.Item>
+          <Actionsheet.Item onPress={() => DecPrice()}>High to Low</Actionsheet.Item>
+        </Actionsheet.Content>
+      </Actionsheet>
+      </View>
+
+
       <View>
         <SafeAreaView style={{backgroundColor: '#edebeb'}}>
           {isLoading ? (
@@ -61,6 +101,7 @@ const ProductListWithApi = ({ navigation }) => {
               <View style={{marginBottom: 100}}>
             <FlatList 
               data={data}
+              extraData={{data}}
               keyExtractor={({id}, index) => id}
               renderItem={({item}) => (
                 <TouchableOpacity style={styles.card} onPress={() => {
@@ -83,6 +124,7 @@ const ProductListWithApi = ({ navigation }) => {
         </SafeAreaView>
       </View>
     </View>
+    </NativeBaseProvider>
   );
 };
 

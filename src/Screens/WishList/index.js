@@ -15,11 +15,11 @@ const WishList = () => {
         SplashScreen.hide()
     })
 
-    const renderItem = ({ item }) => {
+    const renderItem = ({ item }) => { 
         return (
-            <View>
+           
                 <View>
-                    <Box w="50%" bg="#D3D3D3" m={2} p={5} rounded={10}>
+                    <Box w={180} bg="#D3D3D3" m={3} p={5} rounded={10}>
                         <Box>
                             <Image source={{
                                 uri: item.image
@@ -41,7 +41,7 @@ const WishList = () => {
                         </Box>
                     </Box>
                 </View>
-            </View>
+           
 
         )
     }
@@ -50,7 +50,7 @@ const WishList = () => {
              <Text fontSize="lg" fontWeight="bold" p={5}>My WishList</Text>
            <FlatList
            data={wishLists}
-        //    numColumns={2}
+           numColumns={2}
            renderItem={renderItem}
            />
 

@@ -25,6 +25,7 @@ const ProductListWithApi = ({navigation}) => {
     onClose
   } = useDisclose();
 
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const getProducts = async () => {
@@ -117,13 +118,26 @@ const ProductListWithApi = ({navigation}) => {
             </View>
           ) : (
             <View style={{marginBottom: 100}}>
-              <Modal visible={modalOpen} animationType="slide">
+              <Modal visible={modalOpen} animationType="slide" transparent={true}>
                 <View
                   style={{
-                    backgroundColor: '#edd898',
-                    width: '100%',
-                    height: '100%',
-                  }}>
+    margin: 10,
+    marginVertical: 105,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 10,
+    height: '85%',
+    alignItems: "center",
+    justifyContent: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  }}>
                   <Text style={{margin: 10}}>Category</Text>
                   <TouchableOpacity
                     style={styles.filterButton}

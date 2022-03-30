@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image, Button} from 'react-native';
 import styles from './style';
 import Slider from '../../Components/Slider/index';
 import { IconButton, NativeBaseProvider } from 'native-base';
@@ -16,8 +15,6 @@ import {
   BackHandler,
   Alert,
 } from 'react-native';
-import styles from './style';
-import Slider from '../../Components/Slider/index';
 import {useRoute, useFocusEffect} from '@react-navigation/native';
 
 const images = [

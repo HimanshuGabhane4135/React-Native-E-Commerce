@@ -8,7 +8,7 @@ const Header = ({navigation}) => {
   };
 
   const GoToCart = () => {
-    navigation.navigate('ProductListWithApi');
+    navigation.navigate('Cart');
   };
   return (
     <View style={styles.header}>

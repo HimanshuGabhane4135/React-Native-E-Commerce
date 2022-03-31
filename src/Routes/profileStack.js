@@ -4,22 +4,23 @@ import Profile from '../Screens/Profile/index';
 
 const Stack = createNativeStackNavigator();
 
-const profile = () => {
+const ProfileStack = () => {
   return (
     <Stack.Navigator initialRouteName="Profile">
       <Stack.Group
         screenOptions={{
           headerStyle: {backgroundColor: '#eee'},
           headerTintColor: 'green',
+          headerShown: false,
         }}>
         <Stack.Screen
           name="Profile"
           component={Profile}
-          options={{title: 'Profile'}}
+          options={{title: 'PROFILE'}}
         />
       </Stack.Group>
     </Stack.Navigator>
   );
 };
 
-export default profile;
+export default ProfileStack;

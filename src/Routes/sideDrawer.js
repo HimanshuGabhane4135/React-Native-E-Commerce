@@ -3,7 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeStack from './homeStack';
 import WishStack from './wishStack';
 import ProfileStack from './profileStack';
-import Header from './Components/Header';
+import Header from '../Components/Header';
 
 const Drawer = createDrawerNavigator();
 

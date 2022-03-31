@@ -20,7 +20,7 @@ import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Color} from '../../Utils/color';
 import FlotingButton from '../../Components/FlotingButton';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   //   const [quantity, setQuantity] = useState();
   //   const [selectedLanguage, setSelectedLanguage] = useState();
 
@@ -80,7 +80,15 @@ const Profile = () => {
                 Email Address
               </Text>
             </VStack>
-            <Icon style={style.icon} name="pencil" size={20} color="black" />
+            <Icon
+              style={style.icon}
+              name="pencil"
+              size={20}
+              color="black"
+              onPress={() => {
+                navigation.navigate('EditProfile');
+              }}
+            />
           </Box>
           <Box
             safeArea
@@ -137,6 +145,10 @@ const Profile = () => {
                 name="pencil"
                 size={18}
                 color="white"
+                onPress={() => {
+                  // alert("Addresses");
+                  navigation.navigate('ManageAddress');
+                }}
               />
             </Box>
             <Text textAlign="right" color="white">
@@ -144,7 +156,7 @@ const Profile = () => {
               VIEW ALL ADDRESS
             </Text>
           </Box>
-          <Box mt="3" flexDirection="row">
+          <Box mt="3" flexDirection="row" mb="3">
             <Button
               startIcon={<Icon3 name="logout" size={20} color={Color.white} />}
               bg={Color.blue}

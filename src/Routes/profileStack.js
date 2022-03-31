@@ -1,6 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Profile from '../Screens/Profile/index';
+import Profile from '../Screens/Profile';
+import EditProfile from '../Screens/EditProfile';
+import ManageAddress from '../Screens/ManageAddress';
+import AddAddress from '../Screens/AddAddress';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +20,21 @@ const ProfileStack = () => {
           name="Profile"
           component={Profile}
           options={{title: 'PROFILE'}}
+        />
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
+          options={{title: 'EditProfile'}}
+        />
+        <Stack.Screen
+          name="ManageAddress"
+          component={ManageAddress}
+          options={{title: 'ManageAddress'}}
+        />
+        <Stack.Screen
+          name="AddAddress"
+          component={AddAddress}
+          options={{title: 'AddAddress'}}
         />
       </Stack.Group>
     </Stack.Navigator>

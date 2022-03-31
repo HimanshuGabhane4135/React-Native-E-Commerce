@@ -11,6 +11,7 @@ const WishStack = () => {
         screenOptions={{
           headerStyle: {backgroundColor: '#eee'},
           headerTintColor: 'green',
+          headerShown: false,
         }}>
         <Stack.Screen
           name="WishList"

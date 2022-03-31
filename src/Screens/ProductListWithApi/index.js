@@ -4,9 +4,13 @@ import {
   Select,
   useDisclose,
   Button,
+  IconButton
 } from 'native-base';
 import React, {useEffect, useState} from 'react';
-
+import {useDispatch} from 'react-redux';
+import {addToWishList} from '../../Redux/action';
+import {Color} from '../../Utils/color';
+import Icon from 'react-native-vector-icons/AntDesign';
 import {
   ActivityIndicator,
   FlatList,
@@ -27,6 +31,11 @@ const ProductListWithApi = ({navigation}) => {
   const {isOpen, onOpen, onClose} = useDisclose();
 
   const [modalOpen, setModalOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const wishListProduct = () => {
+    dispatch(addToWishList(data));
+  };
 
   const getProducts = async () => {
     try {
@@ -182,6 +191,13 @@ const ProductListWithApi = ({navigation}) => {
                         const proId = item.id;
                         navigation.navigate('ProductDetail', {proId});
                       }}>
+                      <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                       <Image style={styles.img} source={{uri: item.image}} />
 
                       <View style={styles.infoContainer}>

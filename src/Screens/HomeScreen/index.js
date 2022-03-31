@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styles from './style';
 import Slider from '../../Components/Slider/index';
-import { IconButton, NativeBaseProvider } from 'native-base';
+import {IconButton, NativeBaseProvider} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { Color } from '../../Utils/color';
-import { useDispatch } from 'react-redux';
-import { addToWishList } from '../../Redux/action';
+import {Color} from '../../Utils/color';
+import {useDispatch} from 'react-redux';
+import {addToWishList} from '../../Redux/action';
 import {
   View,
   Text,
@@ -46,7 +46,9 @@ function Homescreen({navigation}) {
   };
 
   const dispatch = useDispatch();
-  const wishListProduct = () => {dispatch(addToWishList(data))}
+  const wishListProduct = () => {
+    dispatch(addToWishList(data));
+  };
 
   useEffect(() => {
     getProducts();
@@ -111,12 +113,13 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
-                    <NativeBaseProvider>
-                   <IconButton
-                    onPress={() => wishListProduct()}
-                    alignItems="flex-end" 
-                    icon={<Icon size={20} color={Color.gray} name="star" />} />
-                   </NativeBaseProvider>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>
@@ -163,6 +166,13 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>
@@ -209,6 +219,13 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>

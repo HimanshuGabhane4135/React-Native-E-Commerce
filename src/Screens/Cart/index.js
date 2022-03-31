@@ -8,17 +8,18 @@ import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch, useSelector } from 'react-redux'
 import { Color } from '../../Utils/color'
 import { addToWishList, removeFromCart } from '../../Redux/action'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Cart = () => {
+const Cart = ({ navigation }) => {
 
     const { carts } = useSelector(state => state.CartReducer)
     const [selectedLanguage, setSelectedLanguage] = useState();
 
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     const removeFromBookmarkList = book => dispatch(removeFromCart(book))
 
     const handleRemoveBookmark = book => {
-      removeFromBookmarkList(book);
+        removeFromBookmarkList(book);
     };
 
 
@@ -28,6 +29,22 @@ const Cart = () => {
         addToWlist(book);
     };
 
+
+    const EmptyListMessage = () => {
+        return (
+            // Flat List Item
+            <View>
+                <Text textAlign="center" fontSize="md" mt={5}>Nothing to show</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("Homescreen")}>
+
+                    <Text fontSize="md" m={5} textAlign="center" bg="#D3D3D3" p={3} rounded={10}>
+                        Add New Products
+                    </Text>
+                </TouchableOpacity>
+            </View>
+
+        );
+    };
 
     // console.log(JSON.stringify(bookMarsk));
     const renderItem = ({ item }) => {
@@ -55,7 +72,7 @@ const Cart = () => {
                                 </HStack>
 
                                 <HStack mt={5}>
-                                    <Text fontSize="md" fontWeight="bold">$</Text>
+                                    <Text fontSize="md" fontWeight="bold">₹</Text>
                                     <Text fontSize="md" fontWeight="bold">{item.price}</Text>
                                 </HStack>
                                 <HStack>
@@ -71,7 +88,7 @@ const Cart = () => {
                         </Box> */}
 
                             <VStack w="50%">
-                            {/* alignItems="flex-end" */}
+                                {/* alignItems="flex-end" */}
                                 <Box alignItems="flex-end">
                                     <Image source={{
                                         // uri: "https://www.pngall.com/wp-content/uploads/5/Purse.png"
@@ -81,7 +98,7 @@ const Cart = () => {
                                     <Text style={{top: 14}}>Qty:</Text>
                                     <Picker
                                         selectedValue={selectedLanguage}
-                                        style={{width: 90}}
+                                        style={{ width: "60%" }}
                                         onValueChange={(itemValue, itemIndex) =>
                                             setSelectedLanguage(itemValue)
                                         }>
@@ -95,20 +112,22 @@ const Cart = () => {
                         </HStack>
 
                         <HStack mt={5}>
-                            <Button marginX={1} borderRadius={10}
-                            onPress={() => handleAddToWishList(item)}
-                            startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                                color: "#898989",
-                                fontSize: "12"
-                            }}>
+                            <Button
+                                mr={1}
+                                onPress={() => handleAddToWishList(item)}
+                                startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
+                                    color: "#898989",
+                                    fontSize: "12"
+                                }}>
                                 Save for later
                             </Button>
-                            <Button borderRadius={10}
-                            onPress={() => handleRemoveBookmark(item)}
-                            startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
-                                color: "#898989",
-                                fontSize: "12"
-                            }}>
+                            <Button
+                                ml={1}
+                                onPress={() => handleRemoveBookmark(item)}
+                                startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
+                                    color: "#898989",
+                                    fontSize: "12"
+                                }}>
                                 Remove
                             </Button>
                         </HStack>
@@ -126,6 +145,7 @@ const Cart = () => {
                     data={carts}
                     // keyExtractor={item => item.id.toString()}
                     renderItem={renderItem}
+                    ListEmptyComponent={EmptyListMessage}
                 />
 
 

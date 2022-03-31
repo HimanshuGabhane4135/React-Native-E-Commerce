@@ -68,6 +68,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
+  modalView: {
+    margin: 10,
+    marginVertical: 105,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 10,
+    height: '85%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
 });
 
 export default styles;

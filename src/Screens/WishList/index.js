@@ -19,16 +19,16 @@ const WishList = () => {
         return (
            
                 <View>
-                    <Box w={180} bg="#D3D3D3" m={3} p={5} rounded={10}>
+                    <Box h={290} w={180} bg="#D3D3D3" m={3} p={5} rounded={10}>
                         <Box>
                             <Image source={{
                                 uri: item.image
-                            }} size="xl" alt="Please Wait" mb={1} />
+                            }} size='xl' alt="Please Wait" mb={1}  resizeMode='contain' />
                         </Box>
-                        <Text fontSize="xs" mt={1} color={Color.gray}>{item.title}</Text>
+                        <Text fontSize="xs" mt={1} color={Color.black}>{item.title}</Text>
 
                         <HStack mt={1}>
-                            <Text fontSize="md" fontWeight="bold">₹</Text>
+                            <Text fontSize="md" fontWeight="bold">$</Text>
                             <Text fontSize="md" fontWeight="bold">{item.price}</Text>
                         </HStack>
                         <Box alignItems="flex-end">

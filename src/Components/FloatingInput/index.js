@@ -3,7 +3,7 @@ import React from 'react'
 import { Color } from '../../Utils/color'
 import Feather from 'react-native-vector-icons/Feather';
 
-const FloatingInput = ({ placeholder, w, h, keyboardType, onChangeText, InputLeftElement, targetName, value, error, iconName }) => {
+const FloatingInput = ({ placeholder, w, h, keyboardType, onChangeText, InputLeftElement, targetName, value, error, iconName, secureTextEntry }) => {
     return (
         <View>
             <Input
@@ -19,6 +19,7 @@ const FloatingInput = ({ placeholder, w, h, keyboardType, onChangeText, InputLef
                 borderRadius={10}
                 onChangeText={onChangeText}
                 keyboardType={keyboardType}
+                secureTextEntry={secureTextEntry}
                 // InputLeftElement={InputLeftElement}
                 InputLeftElement={<Feather name={iconName} size={20} color={Color.gray} style={{ padding: 5 }} />}
                 _focus={{

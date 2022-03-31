@@ -63,6 +63,7 @@ const Login = ({ navigation }) => {
                         placeholder="Password"
                         value={password.value}
                         error={password.error}
+                        secureTextEntry={true}
                         onChangeText={(text) => setPassword({ valuae: text, error: "" })}
                         iconName="lock"
                     />

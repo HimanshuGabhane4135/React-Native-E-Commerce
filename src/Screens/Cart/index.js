@@ -44,7 +44,8 @@ const Cart = () => {
                                 <HStack mt={2}>
                                     <Button _text={{
                                         color: "#fff",
-                                        fontSize: "12"
+                                        fontSize: "12",
+                                         
                                     }} bg={Color.green}
                                         endIcon={<Icon2 name="star" size={10} color={Color.white} />} h={7}>
                                         {item.rating.rate}
@@ -54,8 +55,8 @@ const Cart = () => {
                                 </HStack>
 
                                 <HStack mt={5}>
-                                    <Text fontSize="md" fontWeight="bold">₹</Text>
-                                    <Text fontSize="md" fontWeight="bold">{item.price * selectedLanguage}</Text>
+                                    <Text fontSize="md" fontWeight="bold">$</Text>
+                                    <Text fontSize="md" fontWeight="bold">{item.price}</Text>
                                 </HStack>
                                 <HStack>
                                     <Text fontSize="sm" >Delivery by </Text>
@@ -75,23 +76,26 @@ const Cart = () => {
                                     <Image source={{
                                         // uri: "https://www.pngall.com/wp-content/uploads/5/Purse.png"
                                         uri: item.image
-                                    }} size="sm" alt="Please Wait" />
+                                    }} size='lg' alt="Please Wait" resizeMode='contain' />
+                                    <Box flexDirection="row">
+                                    <Text style={{top: 14}}>Qty:</Text>
                                     <Picker
                                         selectedValue={selectedLanguage}
-                                        style={{width:"60%"}}
+                                        style={{width: 90}}
                                         onValueChange={(itemValue, itemIndex) =>
                                             setSelectedLanguage(itemValue)
                                         }>
-                                        <Picker.Item label="Qty:1" value="1" />
+                                        <Picker.Item label="1" value="1" />
                                         <Picker.Item label="2" value="2" />
                                         <Picker.Item label="3" value="3" />
                                     </Picker>
+                                    </Box>
                                 </Box>
                             </VStack>
                         </HStack>
 
                         <HStack mt={5}>
-                            <Button 
+                            <Button marginX={1} borderRadius={10}
                             onPress={() => handleAddToWishList(item)}
                             startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
                                 color: "#898989",
@@ -99,7 +103,7 @@ const Cart = () => {
                             }}>
                                 Save for later
                             </Button>
-                            <Button
+                            <Button borderRadius={10}
                             onPress={() => handleRemoveBookmark(item)}
                             startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
                                 color: "#898989",

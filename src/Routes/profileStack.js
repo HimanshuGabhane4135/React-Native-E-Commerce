@@ -4,6 +4,7 @@ import Profile from '../Screens/Profile';
 import EditProfile from '../Screens/EditProfile';
 import ManageAddress from '../Screens/ManageAddress';
 import AddAddress from '../Screens/AddAddress';
+import AddressForm from '../Screens/AddressForm';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,11 @@ const ProfileStack = () => {
           name="AddAddress"
           component={AddAddress}
           options={{title: 'AddAddress'}}
+        />
+        <Stack.Screen
+          name="AddressForm"
+          component={AddressForm}
+          options={{title: 'AddressForm'}}
         />
       </Stack.Group>
     </Stack.Navigator>

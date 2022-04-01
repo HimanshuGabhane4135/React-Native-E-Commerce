@@ -9,7 +9,7 @@ const Card = (props, data) => {
     <Box>
       <TouchableOpacity onPress={props.onPress}>
         <Center>
-          <Text></Text>
+          <Text />
           <Box safeArea py="8" w="90%" maxW="500" p={5} bg={Color.gray}>
             <Text color="white"> Name: {props.data.name}</Text>
             <Text color="white"> Email: {props.data.email}</Text>
@@ -17,7 +17,7 @@ const Card = (props, data) => {
             <Text color="white"> Pincode: {props.data.pincode}</Text>
             <Text color="white"> Address: {props.data.address}</Text>
           </Box>
-          <Text></Text>
+          <Text />
         </Center>
       </TouchableOpacity>
     </Box>

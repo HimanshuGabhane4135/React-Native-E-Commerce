@@ -9,7 +9,6 @@ import {
   Button,
   VStack,
 } from 'native-base';
-// import {ScrollView} from 'react-native';
 
 import React from 'react';
 import {useEffect} from 'react';
@@ -18,7 +17,6 @@ import style from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Color} from '../../Utils/color';
-import FlotingButton from '../../Components/FlotingButton';
 
 const Profile = ({navigation}) => {
   //   const [quantity, setQuantity] = useState();
@@ -160,6 +158,9 @@ const Profile = ({navigation}) => {
             <Button
               startIcon={<Icon3 name="logout" size={20} color={Color.white} />}
               bg={Color.blue}
+              onPress={() => {
+                navigation.navigate('Login');
+              }}
               w="50%"
               _text={{
                 color: Color.white,

@@ -1,20 +1,40 @@
 import { Box, Button, FlatList, HStack, Image, NativeBaseProvider, Text, View } from 'native-base'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Color } from '../../Utils/color'
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import SplashScreen from 'react-native-splash-screen';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { removeFromWishList } from '../../Redux/action';
 
 const WishList = ({ navigation }) => {
 
     const { wishLists } = useSelector(state => state.CartReducer)
-    console.log("wishlist", wishLists)
+    // const [first, setfirst] = useState(wishLists);
+    // const [status, setstatus] = useState(false)
+    // console.log("--------wishlist", wishLists)
+
+    const dispatch = useDispatch();
+    const removeFromBookmarkList = book => dispatch(removeFromWishList(book))
+
+    const handleRemoveBookmark = book => {
+        removeFromBookmarkList(book);
+    };
 
 
     useEffect(() => {
         SplashScreen.hide()
     })
+
+    // const deleteHandler = (item) => {
+    //  const a =first.filter(x=> x.id !== item)
+    //  setfirst(a)
+    //  setstatus(!status)
+    //  console.log(a,"ihihihihih");
+    //     //     console.log(".....",item)
+    // //    const sss= wishLists.map(i=> i.id)
+    // //    wishLists.filter(sss !== item)
+    // }
 
     const EmptyListMessage = () => {
         return (
@@ -48,10 +68,16 @@ const WishList = ({ navigation }) => {
                         <Text fontSize="md" fontWeight="bold">{item.price}</Text>
                     </HStack>
                     <Box alignItems="flex-end">
-                        <Button startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} _text={{
-                            color: "#898989",
-                            fontSize: "12"
-                        }}>
+                        <Button
+                            onPress={() => {
+                                // deleteHandler(item.id)
+                                handleRemoveBookmark(item)
+                            }
+                            }
+                            startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} _text={{
+                                color: "#898989",
+                                fontSize: "12"
+                            }}>
                             Remove
                         </Button>
                     </Box>

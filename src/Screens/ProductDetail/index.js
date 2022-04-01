@@ -23,6 +23,8 @@ const ProductDetail = ({ route, navigation }) => {
   const [data, setData] = useState([]);
   const toast = useToast();
   const {carts} = useSelector(state => state.CartReducer);
+  const temp = carts.id;
+  
 
   const getProduct = async () => {
     try {
@@ -41,21 +43,27 @@ const ProductDetail = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const fetchProduct = () => dispatch(addToCart({ data }))
 
-  const ifExists = book => {
-    return carts?.filter(item => item.id === book.id).length > 0
-};
   useEffect(() => {
     getProduct();
   }, []);
 
 
+  const ifExists = () => {
+    // if(carts?.filter(data.id === temp).length > 0){
+    return carts?.filter(data.id === temp).length > 0
+};
+                                                                            
+
   const addProduct = () => {
+    console.log("-------",data.id)
     toast.show({
       description: "Product Added",
       placement: "top",
       bg: Color.green
     })
-    fetchProduct()
+   fetchProduct()
+   carts?.filter(data=>console.log('data filter id--',data.id))
+    // ifExists() ? alert("exist") : fetchProduct()
 
 
   }

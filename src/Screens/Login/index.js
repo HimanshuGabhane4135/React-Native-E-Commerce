@@ -55,10 +55,10 @@ const Login = ({navigation}) => {
           />
           <FloatingInput
             placeholder="Password"
-            secureTextEntry={true}
             value={password.value}
             error={password.error}
             onChangeText={text => setPassword({value: text, error: ''})}
+            secureTextEntry={true}
             iconName="lock"
           />
 

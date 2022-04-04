@@ -6,14 +6,14 @@ import SplashScreen from 'react-native-splash-screen';
 import { useDispatch, useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { removeFromWishList } from '../../Redux/action';
+import FlotingButton from '../../Components/FlotingButton';
 
 const WishList = ({ navigation }) => {
 
     const { wishLists } = useSelector(state => state.CartReducer)
-    // const [first, setfirst] = useState(wishLists);
-    // const [status, setstatus] = useState(false)
-    // console.log("--------wishlist", wishLists)
-
+    const totalProduct= wishLists?.length;
+    console.log(totalProduct,"producttttttt")
+  
     const dispatch = useDispatch();
     const removeFromBookmarkList = book => dispatch(removeFromWishList(book))
 
@@ -38,14 +38,14 @@ const WishList = ({ navigation }) => {
 
     const EmptyListMessage = () => {
         return (
-            // Flat List Item
             <View>
                 <Text textAlign="center" fontSize="md" mt={5}>Nothing to show</Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-                    <Text fontSize={20} m={5} textAlign="center" bg="#D3D3D3" p={3} rounded={10}>
-                        Add New Products
-                    </Text>
-                </TouchableOpacity>
+                <FlotingButton
+                        btnString="Add New Products"
+                        my={5}
+                        mx={10}
+                        onPress={() => navigation.navigate("Home")}
+                    />
             </View>
 
         );
@@ -69,11 +69,7 @@ const WishList = ({ navigation }) => {
                     </HStack>
                     <Box alignItems="flex-end">
                         <Button
-                            onPress={() => {
-                                // deleteHandler(item.id)
-                                handleRemoveBookmark(item)
-                            }
-                            }
+                            onPress={() => {handleRemoveBookmark(item)}}
                             startIcon={<Icon3 name="delete" size={20} color={Color.gray} />} bg={Color.white} _text={{
                                 color: "#898989",
                                 fontSize: "12"
@@ -90,6 +86,7 @@ const WishList = ({ navigation }) => {
     return (
         <NativeBaseProvider>
             <Text fontSize="lg" fontWeight="bold" p={5}>My WishList</Text>
+            <Text textAlign="right" mr={5} color={Color.gray} fontWeight="bold">{totalProduct} item</Text>
             <FlatList
                 data={wishLists}
                 numColumns={2}

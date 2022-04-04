@@ -22,9 +22,12 @@ const ProductDetail = ({ route, navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const toast = useToast();
-  const {carts} = useSelector(state => state.CartReducer);
-  const temp = carts.id;
-  
+  let { carts } = useSelector(state => state.CartReducer);
+  const temp = carts?.map(i => i.id)
+  console.log("dataId.....", temp);
+  console.log("thisid", data.id)
+  let num= data.id;
+
 
   const getProduct = async () => {
     try {
@@ -39,7 +42,6 @@ const ProductDetail = ({ route, navigation }) => {
     }
   };
 
-
   const dispatch = useDispatch();
   const fetchProduct = () => dispatch(addToCart({ data }))
 
@@ -48,22 +50,38 @@ const ProductDetail = ({ route, navigation }) => {
   }, []);
 
 
-  const ifExists = () => {
-    // if(carts?.filter(data.id === temp).length > 0){
-    return carts?.filter(data.id === temp).length > 0
-};
-                                                                            
+  function include(arr, obj) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == obj) return true;
+    }
+  }
+
+  let ifExists = () => {
+    if (include(temp, num)) {
+      alert('Alredy exist')
+    } else {
+      fetchProduct()
+    }
+  };
 
   const addProduct = () => {
-    console.log("-------",data.id)
+    ifExists()
+    console.log("-------", data.id)
     toast.show({
       description: "Product Added",
       placement: "top",
       bg: Color.green
     })
-   fetchProduct()
-   carts?.filter(data=>console.log('data filter id--',data.id))
+    //  fetchProduct()
+    // carts?.filter(data=>console.log('data filter id--',data.id))
     // ifExists() ? alert("exist") : fetchProduct()
+    // if(ifExists()){
+    //   alert("exist")
+    // }else{
+    //   fetchProduct()
+    // }
+
+ 
 
 
   }

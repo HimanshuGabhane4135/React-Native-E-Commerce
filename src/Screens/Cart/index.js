@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Center, CheckIcon, FlatList, Flex, HStack, IconButton, Image, NativeBaseProvider, Select, Text, View, VStack } from 'native-base'
+import { Box, Button, Center, CheckIcon, FlatList, Flex, HStack, IconButton, Image, NativeBaseProvider, ScrollView, Select, Text, View, VStack } from 'native-base'
 import { useState } from 'react'
 import { Picker } from '@react-native-picker/picker'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,11 +9,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Color } from '../../Utils/color'
 import { addToWishList, removeFromCart } from '../../Redux/action'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useEffect } from 'react';
 
 const Cart = ({ navigation }) => {
 
     const { carts } = useSelector(state => state.CartReducer)
     const [selectedLanguage, setSelectedLanguage] = useState();
+    const priceArray = carts?.map(i => i.price)
+
+    let sum = 0;
+    for (let i = 0; i < priceArray.length; i++) {
+        sum += priceArray[i];
+    }
+
+    useEffect(() => {
+        // console.log("priceArray",priceArray);
+    })
 
     const dispatch = useDispatch();
     const removeFromBookmarkList = book => dispatch(removeFromCart(book))
@@ -32,7 +43,6 @@ const Cart = ({ navigation }) => {
 
     const EmptyListMessage = () => {
         return (
-            // Flat List Item
             <View>
                 <Text textAlign="center" fontSize="md" mt={5}>Nothing to show</Text>
                 <TouchableOpacity onPress={() => navigation.navigate("Homescreen")}>
@@ -110,7 +120,10 @@ const Cart = ({ navigation }) => {
                         <HStack mt={5}>
                             <Button
                                 mr={1}
-                                onPress={() => handleAddToWishList(item)}
+                                onPress={() => {
+                                    handleAddToWishList(item)
+                                    console.log("price", item.price)
+                                }}
                                 startIcon={<Icon name="save" size={20} color={Color.gray} />} bg={Color.white} w="50%" _text={{
                                     color: "#898989",
                                     fontSize: "12"
@@ -136,7 +149,7 @@ const Cart = ({ navigation }) => {
     }
     return (
         <NativeBaseProvider >
-            <View>
+            <ScrollView>
                 <FlatList
                     data={carts}
                     // keyExtractor={item => item.id.toString()}
@@ -155,7 +168,7 @@ const Cart = ({ navigation }) => {
                         <Box alignItems="flex-end" w="50%">
                             <HStack>
                                 <Text fontSize="sm">₹</Text>
-                                <Text fontSize="sm">1,234</Text>
+                                <Text fontSize="sm">{sum}</Text>
                             </HStack>
                         </Box>
                     </HStack>
@@ -179,12 +192,12 @@ const Cart = ({ navigation }) => {
                         <Box alignItems="flex-end" w="50%">
                             <HStack>
                                 <Text fontSize="sm" fontWeight="bold">₹</Text>
-                                <Text fontSize="sm" fontWeight="bold">253</Text>
+                                <Text fontSize="sm" fontWeight="bold">{sum + 40}</Text>
                             </HStack>
                         </Box>
                     </HStack>
                 </Box>
-            </View>
+            </ScrollView>
         </NativeBaseProvider>
 
     )

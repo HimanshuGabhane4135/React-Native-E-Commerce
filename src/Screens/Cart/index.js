@@ -16,6 +16,10 @@ const Cart = ({ navigation }) => {
     const { carts } = useSelector(state => state.CartReducer)
     const [selectedLanguage, setSelectedLanguage] = useState();
     const priceArray = carts?.map(i => i.price)
+    const [totalPrice,setTotalPrice] = useState(0)
+
+
+  
 
     let sum = 0;
     for (let i = 0; i < priceArray.length; i++) {
@@ -24,6 +28,12 @@ const Cart = ({ navigation }) => {
 
     useEffect(() => {
         // console.log("priceArray",priceArray);
+        if(sum == 0){
+            setTotalPrice(0)
+        }else{
+            setTotalPrice(sum + 40)
+        }
+    
     })
 
     const dispatch = useDispatch();
@@ -192,7 +202,8 @@ const Cart = ({ navigation }) => {
                         <Box alignItems="flex-end" w="50%">
                             <HStack>
                                 <Text fontSize="sm" fontWeight="bold">₹</Text>
-                                <Text fontSize="sm" fontWeight="bold">{sum + 40}</Text>
+                                {/* <Text fontSize="sm" fontWeight="bold">{sum + 40}</Text> */}
+                                <Text fontSize="sm" fontWeight="bold">{totalPrice}</Text>
                             </HStack>
                         </Box>
                     </HStack>

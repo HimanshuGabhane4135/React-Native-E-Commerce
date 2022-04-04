@@ -8,7 +8,6 @@ import {
   Button,
   VStack,
 } from 'native-base';
-// import {ScrollView} from 'react-native';
 
 import React from 'react';
 import {useEffect} from 'react';
@@ -16,7 +15,7 @@ import SplashScreen from 'react-native-splash-screen';
 import style from './style';
 import {Color} from '../../Utils/color';
 
-const AddAddress = () => {
+const AddAddress = ({navigation}) => {
   //   const [quantity, setQuantity] = useState();
   //   const [selectedLanguage, setSelectedLanguage] = useState();
 
@@ -50,7 +49,12 @@ const AddAddress = () => {
               <Input bg={Color.white} styles={style.input} />
             </FormControl>
 
-            <Button mt="2" colorScheme="indigo">
+            <Button
+              mt="2"
+              colorScheme="indigo"
+              onPress={() => {
+                navigation.navigate('ManageAddress');
+              }}>
               Add
             </Button>
           </VStack>

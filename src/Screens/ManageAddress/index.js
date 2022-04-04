@@ -20,7 +20,14 @@ const ManageAddress = ({navigation}) => {
   useEffect(() => {
     SplashScreen.hide();
   });
-  const renderItem = ({item}) => <Card data={item} />;
+  const renderItem = ({item}) => (
+    <Card
+      data={item}
+      onPress={() => {
+        navigation.navigate('AddressForm', {item: item});
+      }}
+    />
+  );
   return (
     <NativeBaseProvider>
       <FlatList
@@ -37,6 +44,7 @@ const ManageAddress = ({navigation}) => {
               navigation.navigate('AddAddress');
             }}
             w="50%"
+            mb="5"
             _text={{
               color: Color.white,
               fontSize: '12',

@@ -10,15 +10,12 @@ import {
   VStack,
   Button,
 } from 'native-base';
-// import {ScrollView} from 'react-native';
 
 import React from 'react';
 import {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-// import style from './style';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 
-const EditProfile = () => {
+const EditProfile = ({navigation}) => {
   //   const [quantity, setQuantity] = useState();
   //   const [selectedLanguage, setSelectedLanguage] = useState();
 
@@ -69,7 +66,12 @@ const EditProfile = () => {
                 <FormControl.Label>Email Address</FormControl.Label>
                 <Input type="email" />
               </FormControl>
-              <Button mt="2" colorScheme="indigo">
+              <Button
+                mt="2"
+                colorScheme="indigo"
+                onPress={() => {
+                  navigation.navigate('Profile');
+                }}>
                 Update
               </Button>
             </VStack>

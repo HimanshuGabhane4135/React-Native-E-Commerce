@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   paginationText: {
-    color: '#888'
+    color: '#888',
   },
   paginationActiveText: {
-    color: 'white'
+    color: 'white',
   },
 });
 

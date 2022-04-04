@@ -6,15 +6,13 @@ import {
   Text,
   View,
   Image,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
 
 import styles from './style';
 
-const ProductListWithApi = ({ navigation }) => {
-    
+const ProductListWithApi = ({navigation}) => {
   const number = 2;
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -36,7 +34,6 @@ const ProductListWithApi = ({ navigation }) => {
     getProducts();
   }, []);
 
-
   return (
     <View>
       <View style={{flexDirection: 'row'}}>
@@ -54,30 +51,36 @@ const ProductListWithApi = ({ navigation }) => {
       <View>
         <SafeAreaView style={{backgroundColor: '#edebeb'}}>
           {isLoading ? (
-            <View style={{justifyContent:'center',alignItems:'center', marginHorizontal: 200}}>
-            <ActivityIndicator />
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginHorizontal: 200,
+              }}>
+              <ActivityIndicator />
             </View>
           ) : (
-              <View style={{marginBottom: 100}}>
-            <FlatList 
-              data={data}
-              keyExtractor={({id}, index) => id}
-              renderItem={({item}) => (
-                <TouchableOpacity style={styles.card} onPress={() => {
-                    // goToDetail(item.id);
-                    const proId = item.id;
-                    navigation.navigate('ProductDetail', {proId})
-                } }>
-                  <Image style={styles.img} source={{uri: item.image}} />
+            <View style={{marginBottom: 100}}>
+              <FlatList
+                data={data}
+                keyExtractor={({id}, index) => id}
+                renderItem={({item}) => (
+                  <TouchableOpacity
+                    style={styles.card}
+                    onPress={() => {
+                      const proId = item.id;
+                      navigation.navigate('ProductDetail', {proId});
+                    }}>
+                    <Image style={styles.img} source={{uri: item.image}} />
 
-                  <View style={styles.infoContainer}>
-                    <Text style={styles.name}>{item.title}</Text>
-                    <Text style={styles.price}>$ {item.price}</Text>
-                  </View>
-                </TouchableOpacity>
-              )}
-              numColumns={number}
-            />
+                    <View style={styles.infoContainer}>
+                      <Text style={styles.name}>{item.title}</Text>
+                      <Text style={styles.price}>$ {item.price}</Text>
+                    </View>
+                  </TouchableOpacity>
+                )}
+                numColumns={number}
+              />
             </View>
           )}
         </SafeAreaView>

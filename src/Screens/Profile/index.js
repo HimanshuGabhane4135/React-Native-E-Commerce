@@ -19,9 +19,6 @@ import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Color} from '../../Utils/color';
 
 const Profile = ({navigation}) => {
-  //   const [quantity, setQuantity] = useState();
-  //   const [selectedLanguage, setSelectedLanguage] = useState();
-
   useEffect(() => {
     SplashScreen.hide();
   });

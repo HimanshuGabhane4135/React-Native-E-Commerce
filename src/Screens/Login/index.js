@@ -26,11 +26,7 @@ const Login = ({navigation}) => {
     }
     if (userName.value == emptyData) {
       setUserName({...userName, error: Errors.userNameBlank});
-    }
-    // else if(userName.value != sUserName || password.value != sPassword){
-    //     setPassword({ ...userName, error: "*UserName or passwor is inValid..." })
-    // }
-    else if ((userName.value, password.value) != emptyData) {
+    } else if ((userName.value, password.value) != emptyData) {
       navigation.navigate('SideDrawer');
     }
   };
@@ -51,7 +47,6 @@ const Login = ({navigation}) => {
             error={userName.error}
             onChangeText={text => setUserName({value: text, error: ''})}
             iconName="user"
-            // InputLeftElement={<InputIcon name="user" />}
           />
           <FloatingInput
             placeholder="Password"
@@ -72,7 +67,7 @@ const Login = ({navigation}) => {
             Forgot Password?
           </Text>
 
-          <Text fontSize="xs"></Text>
+          <Text fontSize="xs" />
 
           <FlotingButton btnString="LogIn" onPress={loginHandler} />
 
@@ -86,8 +81,6 @@ const Login = ({navigation}) => {
               Create an account
             </Text>
           </HStack>
-
-          {/* <Text>{sPassword}</Text> */}
         </Box>
       </View>
     </NativeBaseProvider>

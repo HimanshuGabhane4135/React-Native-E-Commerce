@@ -5,7 +5,6 @@ import {
   Text,
   View,
   Image,
-  StyleSheet,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
@@ -36,16 +35,15 @@ const ProductDetail = ({route, navigation}) => {
   }, []);
 
   return (
-  
-    <View  style={{flex: 1}}>
-    
+    <View style={{flex: 1}}>
       <View style={{flex: 0.9,backgroundColor: '#edebeb', }}>
         {isLoading ? (
-          <View  style = {{flex: 0.8,justifyContent:'center',alignItems:'center'}}>
-          <ActivityIndicator />
+          <View
+            style={{flex: 0.8, justifyContent: 'center', alignItems: 'center'}}>
+            <ActivityIndicator />
           </View>
         ) : (
-          <ScrollView style = {{flex: 0.8}}>
+          <ScrollView style={{flex: 0.8}}>
             <Image style={styles.img} source={{uri: data.image}} />
             <View style={styles.infoContainer}>
               <Text style={styles.title}>{data.title}</Text>
@@ -56,22 +54,26 @@ const ProductDetail = ({route, navigation}) => {
           </ScrollView>
         )}
       </View>
-      <View  style={{flex: 0.1,justifyContent:'flex-end',backgroundColor: '#edebeb',}}>
-      <View style={{flexDirection: 'row' }}>
-        <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.btnText}>Add to cart</Text>
-          </TouchableOpacity>
+      <View
+        style={{
+          flex: 0.1,
+          justifyContent: 'flex-end',
+          backgroundColor: '#edebeb',
+        }}>
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.btnView}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.btnText}>Add to cart</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.btnView}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.btnText}>Buy Now</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.btnView}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.btnText}>Buy Now</Text>
-          </TouchableOpacity>
-        </View>
       </View>
-      </View>
-      </View>
-    // </ScrollView>
+    </View>
   );
 };
 

@@ -1,10 +1,8 @@
-import { Text } from 'react-native'
-import React from 'react'
+import {Text} from 'react-native';
+import React from 'react';
 
 const ForgotPassword = () => {
-  return (
-    <Text>Forgot Password</Text>
-  )
-}
+  return <Text>Forgot Password</Text>;
+};
 
 export default ForgotPassword;

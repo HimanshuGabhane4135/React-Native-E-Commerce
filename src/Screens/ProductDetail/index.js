@@ -1,3 +1,4 @@
+import {useToast} from 'native-base';
 import React, {useEffect, useState} from 'react';
 
 import {
@@ -8,14 +9,22 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart} from '../../Redux/action';
 import styles from './style';
+import {Color} from '../../Utils/color';
 
 const ProductDetail = ({route, navigation}) => {
   const {proId} = route.params;
   const id = JSON.stringify(proId);
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const toast = useToast();
+  let {carts} = useSelector(state => state.CartReducer);
+  const temp = carts?.map(i => i.id);
+  console.log('dataId.....', temp);
+  console.log('thisid', data.id);
+  let num = data.id;
 
   const getProduct = async () => {
     try {
@@ -30,13 +39,39 @@ const ProductDetail = ({route, navigation}) => {
     }
   };
 
+  const dispatch = useDispatch();
+  const fetchProduct = () => dispatch(addToCart({data}));
+
   useEffect(() => {
     getProduct();
   }, []);
 
+  function include(arr, obj) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] == obj) return true;
+    }
+  }
+
+  let ifExists = () => {
+    if (include(temp, num)) {
+      alert('Already exist');
+    } else {
+      fetchProduct();
+    }
+  };
+
+  const addProduct = () => {
+    ifExists();
+    console.log('-------', data.id);
+    toast.show({
+      description: 'Product Added',
+      placement: 'top',
+      bg: Color.green,
+    });
+  };
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 0.9,backgroundColor: '#edebeb', }}>
+      <View style={{flex: 0.9, backgroundColor: '#edebeb'}}>
         {isLoading ? (
           <View
             style={{flex: 0.8, justifyContent: 'center', alignItems: 'center'}}>
@@ -62,18 +97,30 @@ const ProductDetail = ({route, navigation}) => {
         }}>
         <View style={{flexDirection: 'row'}}>
           <View style={styles.btnView}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.btnText}>Add to cart</Text>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={() => addProduct()}>
+              <Text style={styles.btnText2}>Add to cart</Text>
             </TouchableOpacity>
+            {/* <Button title='add to cart' onPress={()=>fetchProduct()}/> */}
           </View>
           <View style={styles.btnView}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() =>
+                navigation.navigate('OrderTraking', {
+                  productName: data.title,
+                  productPrice: data.price,
+                  productImage: data.image,
+                })
+              }>
               <Text style={styles.btnText}>Buy Now</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     </View>
+    // </ScrollView>
   );
 };
 

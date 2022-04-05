@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import { Color } from '../../Utils/color';
 
 const styles = StyleSheet.create({
     card: {
@@ -47,10 +48,23 @@ const styles = StyleSheet.create({
     button: {
       width: '100%',
       height: 50,
-      backgroundColor: '#edd898',
+      backgroundColor: Color.orange,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderColor:Color.white,
+      borderWidth: 0.2,
+    },
+    button2: {
+      width: '100%',
+      height: 50,
+      backgroundColor: Color.white,
+      borderColor:Color.white,
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 0.2,
+    },
+    btnText2: {
+      fontSize: 18,
     },
     btnView: {
       width: '50%',
@@ -58,6 +72,7 @@ const styles = StyleSheet.create({
     },
     btnText: {
       fontSize: 18,
+      color:Color.white
     },
     desc: {
       fontSize: 14,

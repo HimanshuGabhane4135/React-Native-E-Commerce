@@ -15,9 +15,9 @@ function Slider(props) {
       setActive(slide);
     }
   };
-
+console.log(props.images,'props.images')
   return (
-    <View>
+    <View style={{flex:1}}>
       {/* carousel */}
 
       <View>

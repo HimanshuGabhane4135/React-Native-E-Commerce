@@ -1,14 +1,21 @@
 import React, {useEffect, useState} from 'react';
+import styles from './style';
+import Slider from '../../Components/Slider/index';
+import {IconButton, NativeBaseProvider} from 'native-base';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {Color} from '../../Utils/color';
+import {useDispatch} from 'react-redux';
+import {addToWishList} from '../../Redux/action';
 import {
   View,
   Text,
   ScrollView,
   TouchableOpacity,
   Image,
-  SafeAreaView,
+  BackHandler,
+  Alert,
 } from 'react-native';
-import styles from './style';
-import Slider from '../../Components/Slider/index';
+import {useRoute, useFocusEffect} from '@react-navigation/native';
 
 const images = [
   require('../../Assets/carousel1.jpg'),
@@ -23,6 +30,8 @@ function Homescreen({navigation}) {
 
   let counter = 0;
 
+  const route = useRoute();
+
   const getProducts = async () => {
     try {
       const response = await fetch('https://fakestoreapi.com/products');
@@ -36,9 +45,40 @@ function Homescreen({navigation}) {
     }
   };
 
+  const dispatch = useDispatch();
+  const wishListProduct = item => {
+    dispatch(addToWishList(item));
+  };
+
   useEffect(() => {
     getProducts();
+    console.log('hehd', data.id);
   }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if ((route.name = 'Homescreen')) {
+          Alert.alert('Hold on!', 'Are you sure you want to go Exit?', [
+            {
+              text: 'Cancel',
+              onPress: () => null,
+              style: 'cancel',
+            },
+            {text: 'YES', onPress: () => BackHandler.exitApp()},
+          ]);
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
 
   return (
     <ScrollView style={styles.mainView}>
@@ -73,6 +113,16 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => {
+                        // console.log("perticular id",data.id)
+                        wishListProduct(item);
+                      }}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>

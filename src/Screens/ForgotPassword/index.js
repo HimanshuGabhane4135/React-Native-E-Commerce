@@ -9,7 +9,7 @@ const ForgotPassword = () => {
       <Box m={10}>
         <FloatingInput placeholder="Username" iconName="user" />
 
-        <FlotingButton btnString="Get Otp" />
+        <FlotingButton btnString="Get OTP" />
       </Box>
     </NativeBaseProvider>
   );

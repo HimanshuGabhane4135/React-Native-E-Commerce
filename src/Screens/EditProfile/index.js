@@ -67,7 +67,7 @@ const EditProfile = ({navigation}) => {
                 mt="2"
                 colorScheme="indigo"
                 onPress={() => {
-                  navigation.navigate('Profile');
+                  navigation.navigate('ProfileScreen');
                 }}>
                 Update
               </Button>

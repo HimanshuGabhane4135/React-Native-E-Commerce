@@ -26,7 +26,7 @@ const SideDrawer = () => {
           }}
         />
         <Drawer.Screen
-          name="ProfileScreen"
+          name="Profile"
           component={ProfileStack}
           options={({navigation}) => {
             return {header: () => <Header navigation={navigation} />};

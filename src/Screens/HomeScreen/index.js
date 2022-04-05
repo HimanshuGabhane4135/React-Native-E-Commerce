@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  SafeAreaView,
+} from 'react-native';
 import styles from './style';
 import Slider from '../../Components/Slider/index';
 
@@ -36,7 +43,6 @@ function Homescreen({navigation}) {
   return (
     <ScrollView style={styles.mainView}>
       {/* carousel */}
-
       <Slider images={images} />
 
       {/* MEN */}

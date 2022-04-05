@@ -46,12 +46,12 @@ function Homescreen({navigation}) {
   };
 
   const dispatch = useDispatch();
-  const wishListProduct = () => {
-    dispatch(addToWishList(data));
-  };
+  const wishListProduct = (item) => {dispatch(addToWishList(item))}
+  // const wishListProduct = (item) => console.log(item,"--------hhjhhg");
 
   useEffect(() => {
     getProducts();
+    console.log("hehd",data.id)
   }, []);
 
   useFocusEffect(
@@ -113,13 +113,17 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
-                  <NativeBaseProvider>
-                    <IconButton
-                      onPress={() => wishListProduct()}
-                      alignItems="flex-end"
-                      icon={<Icon size={20} color={Color.gray} name="star" />}
-                    />
-                  </NativeBaseProvider>
+                    <NativeBaseProvider>
+                   <IconButton
+                    onPress={() => {
+                      // console.log("perticular id",data.id)
+                      wishListProduct(item)
+                    }
+                  
+                    }
+                    alignItems="flex-end" 
+                    icon={<Icon size={20} color={Color.gray} name="star" />} />
+                   </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>

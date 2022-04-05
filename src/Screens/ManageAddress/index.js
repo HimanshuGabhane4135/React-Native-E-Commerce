@@ -14,9 +14,6 @@ const a = [
 ];
 
 const ManageAddress = ({navigation}) => {
-  //   const [quantity, setQuantity] = useState();
-  //   const [selectedLanguage, setSelectedLanguage] = useState();
-
   useEffect(() => {
     SplashScreen.hide();
   });

@@ -82,7 +82,6 @@ function Homescreen({navigation}) {
   return (
     <ScrollView style={styles.mainView}>
       {/* carousel */}
-
       <Slider images={images} />
 
       {/* MEN */}

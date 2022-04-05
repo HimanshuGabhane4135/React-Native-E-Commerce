@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const ProfileStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Profile">
+    <Stack.Navigator initialRouteName="ProfileScreen">
       <Stack.Group
         screenOptions={{
           headerStyle: {backgroundColor: '#eee'},
@@ -18,7 +18,7 @@ const ProfileStack = () => {
           headerShown: false,
         }}>
         <Stack.Screen
-          name="Profile"
+          name="ProfileScreen"
           component={Profile}
           options={{title: 'PROFILE'}}
         />

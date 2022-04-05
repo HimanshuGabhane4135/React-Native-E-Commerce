@@ -16,9 +16,6 @@ import {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 
 const EditProfile = ({navigation}) => {
-  //   const [quantity, setQuantity] = useState();
-  //   const [selectedLanguage, setSelectedLanguage] = useState();
-
   useEffect(() => {
     SplashScreen.hide();
   });

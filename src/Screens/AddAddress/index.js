@@ -16,9 +16,6 @@ import style from './style';
 import {Color} from '../../Utils/color';
 
 const AddAddress = ({navigation}) => {
-  //   const [quantity, setQuantity] = useState();
-  //   const [selectedLanguage, setSelectedLanguage] = useState();
-
   useEffect(() => {
     SplashScreen.hide();
   });

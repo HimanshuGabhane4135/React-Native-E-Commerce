@@ -1,7 +1,15 @@
-import { Box, Button, HStack, Image, NativeBaseProvider, Text, View, VStack } from 'native-base'
-import React, { useEffect } from 'react'
-import SplashScreen from 'react-native-splash-screen'
-import { Color } from '../../Utils/color'
+import {
+  Box,
+  HStack,
+  Image,
+  NativeBaseProvider,
+  Text,
+  View,
+  VStack,
+} from 'native-base';
+import React, {useEffect} from 'react';
+import SplashScreen from 'react-native-splash-screen';
+import {Color} from '../../Utils/color';
 
 const OrderTraking = ({ route }) => {
     const { productName, productPrice, productImage } = route.params;

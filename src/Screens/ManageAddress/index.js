@@ -10,6 +10,7 @@ import Card from '../../Components/Card';
 const a = [
   {name: 'a', email: 'b', phoneNo: 'c', pincode: 'd', address: 'e'},
   {name: 'a', email: 'b', phoneNo: 'c', pincode: 'd', address: 'e'},
+  {name: 'a', email: 'b', phoneNo: 'c', pincode: 'd', address: 'e'},
 ];
 
 const ManageAddress = ({navigation}) => {
@@ -32,7 +33,7 @@ const ManageAddress = ({navigation}) => {
         keyExtractor={item => item.id}
       />
       <Center>
-        <Box mt="3" flexDirection="row">
+        <Box mt="3" flexDirection="row" mb="5">
           <Button
             startIcon={<Icon3 name="plus" size={20} color={Color.white} />}
             bg={Color.blue}

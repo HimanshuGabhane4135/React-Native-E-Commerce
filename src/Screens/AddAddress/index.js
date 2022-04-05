@@ -27,7 +27,7 @@ const AddAddress = ({navigation}) => {
           <VStack space={3} mt="5">
             <FormControl>
               <FormControl.Label>Name</FormControl.Label>
-              <Input bg={Color.white} styles={style.input} />
+              <Input bg={Color.white} borderColor='blue.100' borderWidth={3} />
             </FormControl>
             <FormControl>
               <FormControl.Label>Email</FormControl.Label>

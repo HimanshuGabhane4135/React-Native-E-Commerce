@@ -169,6 +169,13 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>
@@ -215,6 +222,13 @@ function Homescreen({navigation}) {
                     const proId = item.id;
                     navigation.navigate('ProductDetail', {proId});
                   }}>
+                  <NativeBaseProvider>
+                    <IconButton
+                      onPress={() => wishListProduct()}
+                      alignItems="flex-end"
+                      icon={<Icon size={20} color={Color.gray} name="star" />}
+                    />
+                  </NativeBaseProvider>
                   <Image style={styles.img} source={{uri: item.image}} />
 
                   <ScrollView style={styles.infoContainer}>

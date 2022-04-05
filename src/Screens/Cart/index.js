@@ -81,7 +81,8 @@ const Cart = ({ navigation }) => {
                                 <HStack mt={2}>
                                     <Button _text={{
                                         color: "#fff",
-                                        fontSize: "12"
+                                        fontSize: "12",
+                                         
                                     }} bg={Color.green}
                                         endIcon={<Icon2 name="star" size={10} color={Color.white} />} h={7}>
                                         {item.rating.rate}
@@ -112,7 +113,9 @@ const Cart = ({ navigation }) => {
                                     <Image source={{
                                         // uri: "https://www.pngall.com/wp-content/uploads/5/Purse.png"
                                         uri: item.image
-                                    }} size="sm" alt="Please Wait" />
+                                    }} size='lg' alt="Please Wait" resizeMode='contain' />
+                                    <Box flexDirection="row">
+                                    <Text style={{top: 14}}>Qty:</Text>
                                     <Picker
                                         selectedValue={selectedLanguage}
                                         style={{ width: "60%" }}
@@ -123,6 +126,7 @@ const Cart = ({ navigation }) => {
                                         <Picker.Item label="2" value="2" />
                                         <Picker.Item label="3" value="3" />
                                     </Picker>
+                                    </Box>
                                 </Box>
                             </VStack>
                         </HStack>

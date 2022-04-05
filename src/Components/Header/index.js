@@ -21,7 +21,7 @@ const Header = ({navigation}) => {
         />
         <View style={styles.headerTitle}>
           <Image
-            source={require('../../Assets/logo3.jpeg')}
+            source={require('../../Assets/logo3.jpg')}
             style={styles.headerImage}
           />
           <Icon name="search" size={28} style={styles.searchIcon} />

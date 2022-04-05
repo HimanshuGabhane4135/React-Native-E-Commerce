@@ -8,7 +8,8 @@ const style = StyleSheet.create({
   },
   input: {
     size: 'xl',
-    border: '0.5',
+    border: '5',
+    borderColor: 'red'
   },
 });
 

@@ -59,12 +59,12 @@ const WishList = ({ navigation }) => {
                     <Box>
                         <Image source={{
                             uri: item.image
-                        }} size="xl" alt="Please Wait" mb={1} />
+                        }} size="xl" alt="Please Wait" mb={1} resizeMode='contain' bg={'white'} />
                     </Box>
-                    <Text fontSize="xs" mt={1} color={Color.gray}>{item.title}</Text>
+                    <Text fontSize="xs" mt={1} color={Color.black}>{item.title}</Text>
 
                     <HStack mt={1}>
-                        <Text fontSize="md" fontWeight="bold">₹</Text>
+                        <Text fontSize="md" fontWeight="bold">$</Text>
                         <Text fontSize="md" fontWeight="bold">{item.price}</Text>
                     </HStack>
                     <Box alignItems="flex-end">

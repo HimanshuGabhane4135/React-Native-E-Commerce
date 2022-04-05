@@ -13,6 +13,8 @@ const Login = ({navigation}) => {
   const [userName, setUserName] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
   const emptyData = '';
+  const sUserName = 'sapana';
+  const sPassword = 'sapana';
 
   useEffect(() => {
     SplashScreen.hide();
@@ -26,20 +28,19 @@ const Login = ({navigation}) => {
       setUserName({...userName, error: Errors.userNameBlank});
     } else if ((userName.value, password.value) != emptyData) {
       navigation.navigate('SideDrawer');
+      setPassword({value: ''});
+      setUserName({value: ''});
     }
   };
-  const values = {userName, password};
-  console.log('UserDAta', values);
-
   return (
     <NativeBaseProvider>
       <View>
         <Box m={10}>
           <Text fontSize="sm" fontWeight="bold">
-            Log In for the best experiance
+            Log In for the best experience
           </Text>
           <Text fontSize="xs" color={Color.gray} mt={3} mb={3}>
-            Expereance the all new Shopkart
+            Experience the all new Shopkart
           </Text>
 
           <FloatingInput
@@ -67,6 +68,8 @@ const Login = ({navigation}) => {
             onPress={() => navigation.navigate('ForgotPassword')}>
             Forgot Password?
           </Text>
+
+          <Text fontSize="xs" />
 
           <FlotingButton btnString="LogIn" onPress={loginHandler} />
 

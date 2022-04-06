@@ -11,7 +11,11 @@ const AuthStack = () => {
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Group>
-        <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{headerShown: false}}
+        />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Change" component={Change} />

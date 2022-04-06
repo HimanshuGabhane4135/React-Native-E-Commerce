@@ -9,7 +9,7 @@ import {
   VStack,
 } from 'native-base';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import style from './style';
@@ -17,6 +17,10 @@ import {Color} from '../../Utils/color';
 
 const AddressForm = ({route, navigation}) => {
   console.log(route);
+
+  const [address, setAddress] = useState(route.params.item);
+
+  onUpdateAddress = () => {};
 
   useEffect(() => {
     SplashScreen.hide();
@@ -32,7 +36,8 @@ const AddressForm = ({route, navigation}) => {
               <Input
                 bg={Color.white}
                 styles={style.input}
-                value={route.params.item.name}
+                value={address.name}
+                onChangeText={text => setAddress({...address, name: text})}
               />
             </FormControl>
             <FormControl>
@@ -40,7 +45,8 @@ const AddressForm = ({route, navigation}) => {
               <Input
                 bg={Color.white}
                 styles={style.input}
-                value={route.params.item.email}
+                value={address.email}
+                onChangeText={text => setAddress({...address, email: text})}
               />
             </FormControl>
             <FormControl>
@@ -48,7 +54,8 @@ const AddressForm = ({route, navigation}) => {
               <Input
                 bg={Color.white}
                 styles={style.input}
-                value={route.params.item.phoneNo}
+                value={address.phoneNo}
+                onChangeText={text => setAddress({...address, phoneNo: text})}
               />
             </FormControl>
             <FormControl>
@@ -56,7 +63,8 @@ const AddressForm = ({route, navigation}) => {
               <Input
                 bg={Color.white}
                 styles={style.input}
-                value={route.params.item.pincode}
+                value={address.pincode}
+                onChangeText={text => setAddress({...address, pincode: text})}
               />
             </FormControl>
             <FormControl>
@@ -64,7 +72,8 @@ const AddressForm = ({route, navigation}) => {
               <Input
                 bg={Color.white}
                 styles={style.input}
-                value={route.params.item.address}
+                value={address.address}
+                onChangeText={text => setAddress({...address, address: text})}
               />
             </FormControl>
 

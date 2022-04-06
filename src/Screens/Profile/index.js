@@ -17,8 +17,11 @@ import style from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Color} from '../../Utils/color';
+import {useSelector} from 'react-redux';
+import {TouchableOpacity} from 'react-native';
 
 const Profile = ({navigation}) => {
+  const user = useSelector(state => state.CartReducer.username);
   useEffect(() => {
     SplashScreen.hide();
   });
@@ -52,7 +55,7 @@ const Profile = ({navigation}) => {
               _dark={{
                 color: 'warmGray.50',
               }}>
-              Welcome User
+              Welcome {user}
             </Heading>
 
             <VStack space={3} mt="5">
@@ -85,68 +88,63 @@ const Profile = ({navigation}) => {
               }}
             />
           </Box>
-          <Box
-            safeArea
-            py="8"
-            w="90%"
-            maxW="500"
-            p={5}
-            mt="3"
-            bg={Color.gray}>
-            <Text borderBottomWidth="1" color="white">
-              {' '}
-              My Orders
-            </Text>
-            <Text textAlign="right" color="white">
-              {' '}
-              VIEW ALL ORDERS
-            </Text>
-          </Box>
-          <Box
-            safeArea
-            py="8"
-            w="90%"
-            maxW="500"
-            p={5}
-            mt="3"
-            bg={Color.gray}>
-            <Text borderBottomWidth="1" color="white">
-              {' '}
-              My Wishlist
-            </Text>
-            <Text textAlign="right" color="white">
-              {' '}
-              VIEW YOUR WISHLIST
-            </Text>
-          </Box>
-          <Box
-            safeArea
-            py="8"
-            w="90%"
-            maxW="500"
-            p={5}
-            mt="3"
-            bg={Color.gray}>
-            <Box flexDirection="row">
-              <Text borderBottomWidth="1" width="96%" color="white">
+          <Box safeArea py="8" w="90%" maxW="500" p={5} mt="3" bg={Color.gray}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(
+                  'OrderTraking',
+                  productName,
+                  productPrice,
+                  productImage,
+                );
+              }}>
+              <Text borderBottomWidth="1" color="white">
                 {' '}
-                My Addresses
+                My Orders
               </Text>
-              <Icon
-                style={style.addicon}
-                name="pencil"
-                size={18}
-                color="white"
-                onPress={() => {
-                  // alert("Addresses");
-                  navigation.navigate('ManageAddress');
-                }}
-              />
-            </Box>
-            <Text textAlign="right" color="white">
-              {' '}
-              VIEW ALL ADDRESS
-            </Text>
+              <Text textAlign="right" color="white">
+                {' '}
+                VIEW ALL ORDERS
+              </Text>
+            </TouchableOpacity>
+          </Box>
+          <Box safeArea py="8" w="90%" maxW="500" p={5} mt="3" bg={Color.gray}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('WishList');
+              }}>
+              <Text borderBottomWidth="1" color="white">
+                {' '}
+                My Wishlist
+              </Text>
+              <Text textAlign="right" color="white">
+                {' '}
+                VIEW YOUR WISHLIST
+              </Text>
+            </TouchableOpacity>
+          </Box>
+          <Box safeArea py="8" w="90%" maxW="500" p={5} mt="3" bg={Color.gray}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('ManageAddress');
+              }}>
+              <Box flexDirection="row">
+                <Text borderBottomWidth="1" width="96%" color="white">
+                  {' '}
+                  My Addresses
+                </Text>
+                <Icon
+                  style={style.addicon}
+                  name="pencil"
+                  size={18}
+                  color="white"
+                />
+              </Box>
+              <Text textAlign="right" color="white">
+                {' '}
+                VIEW ALL ADDRESS
+              </Text>
+            </TouchableOpacity>
           </Box>
           <Box mt="3" flexDirection="row" mb="3">
             <Button

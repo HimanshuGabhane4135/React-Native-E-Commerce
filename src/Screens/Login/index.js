@@ -8,6 +8,8 @@ import {useState} from 'react';
 import FloatingInput from '../../Components/FloatingInput';
 import FlotingButton from '../../Components/FlotingButton';
 import {Errors} from '../../Utils/MessageUtils';
+import {useDispatch, useSelector} from 'react-redux';
+import {addUsername} from '../../Redux/action';
 
 const Login = ({navigation}) => {
   const [userName, setUserName] = useState({value: '', error: ''});
@@ -15,6 +17,7 @@ const Login = ({navigation}) => {
   const emptyData = '';
   const sUserName = 'sapana';
   const sPassword = 'sapana';
+  const dispatch = useDispatch();
 
   useEffect(() => {
     SplashScreen.hide();
@@ -27,6 +30,7 @@ const Login = ({navigation}) => {
     if (userName.value == emptyData) {
       setUserName({...userName, error: Errors.userNameBlank});
     } else if ((userName.value, password.value) != emptyData) {
+      dispatch(addUsername(userName.value));
       navigation.navigate('SideDrawer');
       setPassword({value: ''});
       setUserName({value: ''});
